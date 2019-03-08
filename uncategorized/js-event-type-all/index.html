@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="js,event,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.存储事件 change      用户改变域的内容   storage     存储区域（localStorage或sessionStorage）时会触发该事件  2.焦点事件 onblur    元素失去焦点  （不会冒泡）  onfocus   元素获得焦点  （不会冒泡）  3. websocket事件 open          WebSocket连接已建立  message    通">
+<meta name="keywords" content="js,event">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js事件类型一览表">
+<meta property="og:url" content="https://abbyz.js.org/uncategorized/js-event-type-all/index.html">
+<meta property="og:site_name" content="一身仙女味">
+<meta property="og:description" content="1.存储事件 change      用户改变域的内容   storage     存储区域（localStorage或sessionStorage）时会触发该事件  2.焦点事件 onblur    元素失去焦点  （不会冒泡）  onfocus   元素获得焦点  （不会冒泡）  3. websocket事件 open          WebSocket连接已建立  message    通">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-08T01:44:16.362Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js事件类型一览表">
+<meta name="twitter:description" content="1.存储事件 change      用户改变域的内容   storage     存储区域（localStorage或sessionStorage）时会触发该事件  2.焦点事件 onblur    元素失去焦点  （不会冒泡）  onfocus   元素获得焦点  （不会冒泡）  3. websocket事件 open          WebSocket连接已建立  message    通">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://abbyz.js.org/uncategorized/js-event-type-all/">
+
+
+
+
+
+  <title>js事件类型一览表 | 一身仙女味</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一身仙女味</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不乱于心，不困于情，不畏将来，不念过往， 如此，安好@</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://abbyz.js.org/uncategorized/js-event-type-all/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小周周">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一身仙女味">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js事件类型一览表</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-30T16:57:55+08:00">
+                2018-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-存储事件"><a href="#1-存储事件" class="headerlink" title="1.存储事件"></a>1.存储事件</h3><blockquote>
+<p>change      <code>用户改变域的内容</code><br>   storage     <code>存储区域（localStorage或sessionStorage）时会触发该事件</code></p>
+</blockquote>
+<h3 id="2-焦点事件"><a href="#2-焦点事件" class="headerlink" title="2.焦点事件"></a>2.焦点事件</h3><blockquote>
+<p>onblur    <code>元素失去焦点  （不会冒泡）</code><br>  onfocus   <code>元素获得焦点  （不会冒泡）</code></p>
+</blockquote>
+<h3 id="3-websocket事件"><a href="#3-websocket事件" class="headerlink" title="3. websocket事件"></a>3. websocket事件</h3><blockquote>
+<p>open          <code>WebSocket连接已建立</code><br>  message    <code>通过WebSocket接收到一条消息</code><br>  error          <code>WebSocket连接异常被关闭（比如有些数据无法发送）</code><br>  close        <code>WebSocket连接已关闭</code></p>
+</blockquote>
+<h3 id="3-表单事件"><a href="#3-表单事件" class="headerlink" title="3. 表单事件"></a>3. 表单事件</h3><blockquote>
+<p>onsubmit      <code>提交按钮被点击</code><br>  onreset        <code>重置按钮被点击</code></p>
+</blockquote>
+<h3 id="3-键盘事件"><a href="#3-键盘事件" class="headerlink" title="3. 键盘事件"></a>3. 键盘事件</h3><blockquote>
+<p>onkeyup         <code>某个键盘的键被松开</code><br>  onkeydown    <code>某个键盘的键被按下</code><br>  onkeypress    <code>某个键盘的键被按下或按住</code></p>
+</blockquote>
+<h3 id="3-视图事件"><a href="#3-视图事件" class="headerlink" title="3. 视图事件"></a>3. 视图事件</h3><blockquote>
+<p>resize     <code>窗口或框架被调整尺寸</code><br>  scroll     <code>窗口的滚动事件</code></p>
+</blockquote>
+<h3 id="3-鼠标事件"><a href="#3-鼠标事件" class="headerlink" title="3. 鼠标事件"></a>3. 鼠标事件</h3><blockquote>
+<p>mouseenter         <code>鼠标进入某元素内</code><br>   mousemove          <code>鼠标被移动</code><br>   mouseover           <code>鼠标被移到某元素之上</code><br>   mousedown         <code>某个鼠标按键被按下</code><br>   mouseup             <code>某个鼠标按键被松开</code><br>   mouseleave         <code>指针移出元素范围外（不冒泡）</code><br>   mouseout            <code>鼠标从某元素移开</code><br>   contextmenu       <code>右键点击</code><br>   click                   <code>鼠标点击某个对象</code><br>   select                <code>文本被选定</code></p>
+</blockquote>
+<h3 id="3-拖拽事件"><a href="#3-拖拽事件" class="headerlink" title="3. 拖拽事件"></a>3. 拖拽事件</h3><blockquote>
+<p> dragstart         <code>用户开始拖动HTML元素或选中的文本</code><br>   drag              <code>正在拖动元素或文本选区（在此过程中持续触发，每350ms触发一次）</code><br>   dragend          <code>拖放操作结束 （松开鼠标按钮或按下Esc键</code><br>   dragenter        <code>被拖动的元素或文本选区移入有效释放目标区</code><br>   dragover       <code>被拖动的元素或文本选区正在有效释放目标上被拖动（在此过程中持续触发，每350ms触发一次）</code><br>   dragleave       <code>被拖动的元素或文本选区移出有效释放目标区</code><br>   drop              <code>元素在有效释放目标区上释放</code></p>
+</blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Events" target="_blank" rel="noopener">具体参照MDN官网</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/event/" rel="tag"># event</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/uncategorized/input-upload-file-format/" rel="next" title="file文件上传格式大全">
+                <i class="fa fa-chevron-left"></i> file文件上传格式大全
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/uncategorized/regular-expression-js/" rel="prev" title="正则表达式小结">
+                正则表达式小结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">小周周</p>
+              <p class="site-description motion-element" itemprop="description">前端，读书，化妆品测评，分享心灵鸡汤，旅游见闻</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-存储事件"><span class="nav-number">1.</span> <span class="nav-text">1.存储事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-焦点事件"><span class="nav-number">2.</span> <span class="nav-text">2.焦点事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-websocket事件"><span class="nav-number">3.</span> <span class="nav-text">3. websocket事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-表单事件"><span class="nav-number">4.</span> <span class="nav-text">3. 表单事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-键盘事件"><span class="nav-number">5.</span> <span class="nav-text">3. 键盘事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-视图事件"><span class="nav-number">6.</span> <span class="nav-text">3. 视图事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-鼠标事件"><span class="nav-number">7.</span> <span class="nav-text">3. 鼠标事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-拖拽事件"><span class="nav-number">8.</span> <span class="nav-text">3. 拖拽事件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小周周</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

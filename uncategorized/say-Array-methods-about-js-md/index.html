@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="js,Array,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Array的特有方法1. Array.find()方法返回数组中满足提供的测试函数的第一个元素的值。否则返回 undefined。123var queueId = this.queues.find(function (elem) &amp;#123;            return elem.code === code     &amp;#125;).id 2.map()方法创建一个新数组，其结果是该数组中的">
+<meta name="keywords" content="js,Array">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Array的方法总结">
+<meta property="og:url" content="https://abbyz.js.org/uncategorized/say-Array-methods-about-js-md/index.html">
+<meta property="og:site_name" content="一身仙女味">
+<meta property="og:description" content="Array的特有方法1. Array.find()方法返回数组中满足提供的测试函数的第一个元素的值。否则返回 undefined。123var queueId = this.queues.find(function (elem) &amp;#123;            return elem.code === code     &amp;#125;).id 2.map()方法创建一个新数组，其结果是该数组中的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-08T01:44:16.513Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Array的方法总结">
+<meta name="twitter:description" content="Array的特有方法1. Array.find()方法返回数组中满足提供的测试函数的第一个元素的值。否则返回 undefined。123var queueId = this.queues.find(function (elem) &amp;#123;            return elem.code === code     &amp;#125;).id 2.map()方法创建一个新数组，其结果是该数组中的">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://abbyz.js.org/uncategorized/say-Array-methods-about-js-md/">
+
+
+
+
+
+  <title>Array的方法总结 | 一身仙女味</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一身仙女味</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不乱于心，不困于情，不畏将来，不念过往， 如此，安好@</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://abbyz.js.org/uncategorized/say-Array-methods-about-js-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小周周">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一身仙女味">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Array的方法总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-17T15:28:42+08:00">
+                2018-12-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Array的特有方法"><a href="#Array的特有方法" class="headerlink" title="Array的特有方法"></a>Array的特有方法</h3><h4 id="1-Array-find"><a href="#1-Array-find" class="headerlink" title="1. Array.find()"></a>1. Array.find()</h4><p>方法返回数组中满足提供的测试函数的第一个元素的值。否则返回 undefined。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var queueId = this.queues.find(function (elem) &#123;</span><br><span class="line">            return elem.code === code</span><br><span class="line">     &#125;).id</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-map"><a href="#2-map" class="headerlink" title="2.map()"></a>2.map()</h4><p>方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&apos;queue_nos&apos;: this.skills.map(function (item) &#123;</span><br><span class="line">return item + &apos;@&apos; + self.domain</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-forEach"><a href="#3-forEach" class="headerlink" title="3.forEach()"></a>3.forEach()</h4><p> 方法对数组的每个元素执行一次提供的函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">res.forEach((item) =&gt; &#123;</span><br><span class="line">    this.skills.push(item.skill)</span><br><span class="line">&#125;)</span><br><span class="line">this.skills = _.uniq(this.skills)</span><br><span class="line">console.log(this.skills)</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-filter"><a href="#4-filter" class="headerlink" title="4.filter()"></a>4.filter()</h4><p>方法创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">self.activities = res.filter(function (item) &#123;</span><br><span class="line">    return item.outboundType !== 3</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h4 id="5-every"><a href="#5-every" class="headerlink" title="5.every()"></a>5.every()</h4><p>方法测试数组的所有元素是否都通过了指定函数的测试。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function isBelowThreshold(currentValue) &#123;</span><br><span class="line">  return currentValue &lt; 40;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var array1 = [1, 30, 39, 29, 10, 13];</span><br><span class="line"></span><br><span class="line">console.log(array1.every(isBelowThreshold));</span><br><span class="line">// expected output: true</span><br></pre></td></tr></table></figure></p>
+<h4 id="6-Array-from"><a href="#6-Array-from" class="headerlink" title="6.Array.from()"></a>6.Array.from()</h4><p>方法从一个类似数组或可迭代对象中创建一个新的数组实例。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.log(Array.from(&apos;foo&apos;));</span><br><span class="line">// expected output: Array [&quot;f&quot;, &quot;o&quot;, &quot;o&quot;]</span><br><span class="line"></span><br><span class="line">console.log(Array.from([1, 2, 3], x =&gt; x + x));</span><br><span class="line">// expected output: Array [2, 4, 6]</span><br></pre></td></tr></table></figure></p>
+<h4 id="7-includes"><a href="#7-includes" class="headerlink" title="7.includes()"></a>7.includes()</h4><p>方法用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回 true，否则返回false。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if (self.query.search === &apos;&apos;) &#123;</span><br><span class="line">item.show = true</span><br><span class="line">&#125; else &#123;</span><br><span class="line">item.show = searchQuery.includes(self.query.search)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="8-some"><a href="#8-some" class="headerlink" title="8.some()"></a>8.some()</h4><p>方法测试数组中的某些元素是否通过由提供的函数实现的测试。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var array = [1, 2, 3, 4, 5];</span><br><span class="line"></span><br><span class="line">var even = function(element) &#123;</span><br><span class="line">  // checks whether an element is even</span><br><span class="line">  return element % 2 === 0;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">console.log(array.some(even));</span><br><span class="line">// expected output: true</span><br></pre></td></tr></table></figure></p>
+<h4 id="9-join"><a href="#9-join" class="headerlink" title="9.join()"></a>9.join()</h4><p>方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var elements = [&apos;Fire&apos;, &apos;Wind&apos;, &apos;Rain&apos;];                //join() 方法，不会改变数组</span><br><span class="line"></span><br><span class="line">console.log(elements.join());</span><br><span class="line">// expected output: Fire,Wind,Rain</span><br><span class="line"></span><br><span class="line">console.log(elements.join(&apos;&apos;));</span><br><span class="line">// expected output: FireWindRain</span><br><span class="line"></span><br><span class="line">console.log(elements.join(&apos;-&apos;));</span><br><span class="line">// expected output: Fire-Wind-Rain</span><br></pre></td></tr></table></figure></p>
+<h4 id="10-keys"><a href="#10-keys" class="headerlink" title="10.keys()"></a>10.keys()</h4><p>方法返回一个包含数组中每个索引键的Array Iterator对象。    返回的是下标值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var array1 = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];</span><br><span class="line">var iterator = array1.keys(); </span><br><span class="line">  </span><br><span class="line">for (let key of iterator) &#123;</span><br><span class="line">  console.log(key); // expected output: 0 1 2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="11-push"><a href="#11-push" class="headerlink" title="11.push()"></a>11.push()</h4><p>方法将一个或多个元素添加到数组的末尾，并返回新数组的长度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var animals = [&apos;pigs&apos;, &apos;goats&apos;, &apos;sheep&apos;];</span><br><span class="line"></span><br><span class="line">console.log(animals.push(&apos;cows&apos;));</span><br><span class="line">// expected output: 4</span><br><span class="line"></span><br><span class="line">console.log(animals);</span><br><span class="line">// expected output: Array [&quot;pigs&quot;, &quot;goats&quot;, &quot;sheep&quot;, &quot;cows&quot;]</span><br></pre></td></tr></table></figure></p>
+<h4 id="12-pop"><a href="#12-pop" class="headerlink" title="12.pop()"></a>12.pop()</h4><p>方法从数组中删除最后一个元素，并返回该元素的值。此方法更改数组的长度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var plants = [&apos;broccoli&apos;, &apos;cauliflower&apos;, &apos;cabbage&apos;, &apos;kale&apos;, &apos;tomato&apos;];</span><br><span class="line"></span><br><span class="line">console.log(plants.pop());</span><br><span class="line">// expected output: &quot;tomato&quot;</span><br><span class="line"></span><br><span class="line">console.log(plants);</span><br><span class="line">// expected output: Array [&quot;broccoli&quot;, &quot;cauliflower&quot;, &quot;cabbage&quot;, &quot;kale&quot;]</span><br><span class="line"></span><br><span class="line">plants.pop();</span><br></pre></td></tr></table></figure></p>
+<h4 id="13-reverse"><a href="#13-reverse" class="headerlink" title="13.reverse()"></a>13.reverse()</h4><p>方法将数组中元素的位置颠倒。<br>第一个数组元素成为最后一个数组元素，最后一个数组元素成为第一个。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var array1 = [&apos;one&apos;, &apos;two&apos;, &apos;three&apos;];              </span><br><span class="line">console.log(array1.reverse())            //  [&quot;three&quot;, &quot;two&quot;, &quot;one&quot;]              //返回的是改变后的数组</span><br><span class="line">console.log(array1)                //   [&quot;three&quot;, &quot;two&quot;, &quot;one&quot;]</span><br></pre></td></tr></table></figure></p>
+<h4 id="14-shift"><a href="#14-shift" class="headerlink" title="14.shift()"></a>14.shift()</h4><p>方法从数组中删除第一个元素，并返回该元素的值。此方法更改数组的长度。  从顶部|开头删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var array1 = [1, 2, 3];                            //返回被删除的值，原数组相应的也会改变</span><br><span class="line"></span><br><span class="line">var firstElement = array1.shift();</span><br><span class="line"></span><br><span class="line">console.log(array1);            //  [2, 3]</span><br><span class="line">console.log(firstElement);            // 1</span><br></pre></td></tr></table></figure></p>
+<h4 id="15-slice"><a href="#15-slice" class="headerlink" title="15.slice()"></a>15.slice()</h4><p>方法返回一个从开始到结束（不包括结束）选择的数组的一部分浅拷贝到一个新数组对象。且原始数组不会被修改。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var animals = [&apos;ant&apos;, &apos;bison&apos;, &apos;camel&apos;, &apos;duck&apos;, &apos;elephant&apos;];                //slice含头不含尾</span><br><span class="line"></span><br><span class="line">console.log(animals.slice(2));        // [&quot;camel&quot;, &quot;duck&quot;, &quot;elephant&quot;]</span><br><span class="line"></span><br><span class="line">console.log(animals.slice(2, 4));            // [&quot;camel&quot;, &quot;duck&quot;]</span><br><span class="line"></span><br><span class="line">console.log(animals.slice(1, 5));        // [&quot;bison&quot;, &quot;camel&quot;, &quot;duck&quot;, &quot;elephant&quot;]</span><br></pre></td></tr></table></figure></p>
+<h4 id="16-splice"><a href="#16-splice" class="headerlink" title="16.splice()"></a>16.splice()</h4><p>方法通过删除现有元素和/或添加新元素来更改一个数组的内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var months = [&apos;Jan&apos;, &apos;March&apos;, &apos;April&apos;, &apos;June&apos;];</span><br><span class="line">months.splice(1, 0, &apos;Feb&apos;);</span><br><span class="line">// inserts at 1st index position</span><br><span class="line">console.log(months);</span><br><span class="line">// expected output: Array [&apos;Jan&apos;, &apos;Feb&apos;, &apos;March&apos;, &apos;April&apos;, &apos;June&apos;]</span><br><span class="line"></span><br><span class="line">months.splice(4, 1, &apos;May&apos;);</span><br><span class="line">// replaces 1 element at 4th index</span><br><span class="line">console.log(months);</span><br><span class="line">// expected output: Array [&apos;Jan&apos;, &apos;Feb&apos;, &apos;March&apos;, &apos;April&apos;, &apos;May&apos;]</span><br></pre></td></tr></table></figure></p>
+<h4 id="17-sort"><a href="#17-sort" class="headerlink" title="17.sort()"></a>17.sort()</h4><p>方法用原地算法对数组的元素进行排序，并返回数组。排序不一定是稳定的。默认排序顺序是根据字符串Unicode码点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var array1 = [1, 30, 4, 21];</span><br><span class="line">array1.sort();</span><br><span class="line">console.log(array1)            //   [1, 21, 30, 4]</span><br></pre></td></tr></table></figure></p>
+<h4 id="18-unshift"><a href="#18-unshift" class="headerlink" title="18.unshift()"></a>18.unshift()</h4><p>方法将一个或多个元素添加到数组的开头，并返回新数组的长度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var array1 = [1, 2, 3];</span><br><span class="line"></span><br><span class="line">console.log(array1.unshift(4, 5));            //    5</span><br><span class="line"></span><br><span class="line">console.log(array1);                // [4, 5, 1, 2, 3]</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/Array/" rel="tag"># Array</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/uncategorized/regular-expression-js/" rel="next" title="正则表达式小结">
+                <i class="fa fa-chevron-left"></i> 正则表达式小结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/uncategorized/bootstrap-open-two-model-noScroll/" rel="prev" title="bootstrap 嵌套模态框 二级模态框关闭导致一级模态框无法滚动">
+                bootstrap 嵌套模态框 二级模态框关闭导致一级模态框无法滚动 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">小周周</p>
+              <p class="site-description motion-element" itemprop="description">前端，读书，化妆品测评，分享心灵鸡汤，旅游见闻</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Array的特有方法"><span class="nav-number">1.</span> <span class="nav-text">Array的特有方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Array-find"><span class="nav-number">1.1.</span> <span class="nav-text">1. Array.find()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-map"><span class="nav-number">1.2.</span> <span class="nav-text">2.map()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-forEach"><span class="nav-number">1.3.</span> <span class="nav-text">3.forEach()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-filter"><span class="nav-number">1.4.</span> <span class="nav-text">4.filter()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-every"><span class="nav-number">1.5.</span> <span class="nav-text">5.every()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-Array-from"><span class="nav-number">1.6.</span> <span class="nav-text">6.Array.from()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-includes"><span class="nav-number">1.7.</span> <span class="nav-text">7.includes()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-some"><span class="nav-number">1.8.</span> <span class="nav-text">8.some()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-join"><span class="nav-number">1.9.</span> <span class="nav-text">9.join()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-keys"><span class="nav-number">1.10.</span> <span class="nav-text">10.keys()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-push"><span class="nav-number">1.11.</span> <span class="nav-text">11.push()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-pop"><span class="nav-number">1.12.</span> <span class="nav-text">12.pop()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-reverse"><span class="nav-number">1.13.</span> <span class="nav-text">13.reverse()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-shift"><span class="nav-number">1.14.</span> <span class="nav-text">14.shift()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-slice"><span class="nav-number">1.15.</span> <span class="nav-text">15.slice()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-splice"><span class="nav-number">1.16.</span> <span class="nav-text">16.splice()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-sort"><span class="nav-number">1.17.</span> <span class="nav-text">17.sort()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#18-unshift"><span class="nav-number">1.18.</span> <span class="nav-text">18.unshift()</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小周周</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="js,input,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="备注： input输入框当type为file时–&amp;gt;导入文件，本地文件的导入与读取并展示出来，相当于像本地发送请求，我之前一直困惑于这种情况下是向本地发送请求，我用的是 $.getJSON(),却一直报错说我是跨域问题，后来我的小领导指出我的问题，说是这个阔以直接通过DOM直接获取内容并展示，这种方法很简便，所以分享…. 1.文件上传input DOM获取文本并展示这段代码是监控input输入">
+<meta name="keywords" content="js,input">
+<meta property="og:type" content="article">
+<meta property="og:title" content="纯js读取csv文件, by DOM">
+<meta property="og:url" content="https://abbyz.js.org/uncategorized/input-uploadAndread-File-by-FileReader/index.html">
+<meta property="og:site_name" content="一身仙女味">
+<meta property="og:description" content="备注： input输入框当type为file时–&amp;gt;导入文件，本地文件的导入与读取并展示出来，相当于像本地发送请求，我之前一直困惑于这种情况下是向本地发送请求，我用的是 $.getJSON(),却一直报错说我是跨域问题，后来我的小领导指出我的问题，说是这个阔以直接通过DOM直接获取内容并展示，这种方法很简便，所以分享…. 1.文件上传input DOM获取文本并展示这段代码是监控input输入">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-08T01:44:16.362Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="纯js读取csv文件, by DOM">
+<meta name="twitter:description" content="备注： input输入框当type为file时–&amp;gt;导入文件，本地文件的导入与读取并展示出来，相当于像本地发送请求，我之前一直困惑于这种情况下是向本地发送请求，我用的是 $.getJSON(),却一直报错说我是跨域问题，后来我的小领导指出我的问题，说是这个阔以直接通过DOM直接获取内容并展示，这种方法很简便，所以分享…. 1.文件上传input DOM获取文本并展示这段代码是监控input输入">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://abbyz.js.org/uncategorized/input-uploadAndread-File-by-FileReader/">
+
+
+
+
+
+  <title>纯js读取csv文件, by DOM | 一身仙女味</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一身仙女味</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不乱于心，不困于情，不畏将来，不念过往， 如此，安好@</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://abbyz.js.org/uncategorized/input-uploadAndread-File-by-FileReader/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小周周">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一身仙女味">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">纯js读取csv文件, by DOM</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-30T14:48:51+08:00">
+                2018-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>备注： input输入框当type为file时–&gt;导入文件，本地文件的导入与读取并展示出来，相当于像本地发送请求，我之前一直困惑于这种情况下是向本地发送请求，我用的是 $.getJSON(),却一直报错说我是跨域问题，后来我的小领导指出我的问题，说是这个阔以直接通过DOM直接获取内容并展示，这种方法很简便，所以分享….</p>
+<h1 id="1-文件上传input-DOM获取文本并展示"><a href="#1-文件上传input-DOM获取文本并展示" class="headerlink" title="1.文件上传input DOM获取文本并展示"></a>1.文件上传input DOM获取文本并展示</h1><p>这段代码是监控input输入框的change事件，data就是你所上传文件的内容，但是要注意看FileReader文档，如果是json文件的话，可能会乱码哦！！！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">handleChange:function (e) &#123;</span><br><span class="line">      var that = this</span><br><span class="line">      if(!e.target.files[0])&#123;</span><br><span class="line">        return</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      var rABS = typeof FileReader !== &apos;undefined&apos; &amp;&amp; typeof FileReader.prototype !== &apos;undefined&apos; &amp;&amp; typeof FileReader.prototype.readAsBinaryString !== &apos;undefined&apos;;  </span><br><span class="line">      var reader=new FileReader();</span><br><span class="line">      if(rABS)&#123;</span><br><span class="line">        reader.readAsBinaryString(e.target.files[0]);//发起异步请求</span><br><span class="line">      &#125;else&#123;</span><br><span class="line">        reader.readAsArrayBuffer(e.target.files[0]);//发起异步请求</span><br><span class="line">      &#125;</span><br><span class="line">  </span><br><span class="line">  reader.onload = function(e) &#123;</span><br><span class="line">      var data = e.target.result;</span><br><span class="line">     &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="2-把数组导出为-csv文件，并要求数据符合文件格式"><a href="#2-把数组导出为-csv文件，并要求数据符合文件格式" class="headerlink" title="2. 把数组导出为.csv文件，并要求数据符合文件格式"></a>2. 把数组导出为.csv文件，并要求数据符合文件格式</h1><p>数组的格式处理：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">var JSonToCSV = &#123;</span><br><span class="line">    /*</span><br><span class="line">     * obj是一个对象，其中包含有：</span><br><span class="line">     * ## data 是导出的具体数据</span><br><span class="line">     * ## fileName 是导出时保存的文件名称 是string格式</span><br><span class="line">     * ## showLabel 表示是否显示表头 默认显示 是布尔格式</span><br><span class="line">     * ## columns 是表头对象，且title和key必须一一对应，包含有</span><br><span class="line">          title:[], // 表头展示的文字</span><br><span class="line">          key:[], // 获取数据的Key</span><br><span class="line">          formatter: function() // 自定义设置当前数据的 传入(key, value)</span><br><span class="line">     */</span><br><span class="line">    setDataConver: function(obj) &#123;</span><br><span class="line">      var bw = this.browser();</span><br><span class="line">      if(bw[&apos;ie&apos;] &lt; 9) return; // IE9以下的</span><br><span class="line">      var data = obj[&apos;data&apos;],</span><br><span class="line">          ShowLabel = typeof obj[&apos;showLabel&apos;] === &apos;undefined&apos; ? true : obj[&apos;showLabel&apos;],</span><br><span class="line">          fileName = (obj[&apos;fileName&apos;] || &apos;UserExport&apos;) + &apos;.csv&apos;,</span><br><span class="line">          columns = obj[&apos;columns&apos;] || &#123;</span><br><span class="line">              title: [],</span><br><span class="line">              key: [],</span><br><span class="line">              formatter: undefined</span><br><span class="line">          &#125;;</span><br><span class="line">      var ShowLabel = typeof ShowLabel === &apos;undefined&apos; ? true : ShowLabel;</span><br><span class="line">      var row = &quot;&quot;, CSV = &apos;&apos;, key;</span><br><span class="line">      // 如果要现实表头文字</span><br><span class="line">      if (ShowLabel) &#123;</span><br><span class="line">          // 如果有传入自定义的表头文字</span><br><span class="line">          if (columns.title.length) &#123;</span><br><span class="line">              columns.title.map(function(n) &#123;</span><br><span class="line">                  row += n + &apos;,&apos;;</span><br><span class="line">              &#125;);</span><br><span class="line">          &#125; else &#123;</span><br><span class="line">              // 如果没有，就直接取数据第一条的对象的属性</span><br><span class="line">              for (key in data[0]) row += key + &apos;,&apos;;</span><br><span class="line">          &#125;</span><br><span class="line">          row = row.slice(0, -1); // 删除最后一个,号，即a,b, =&gt; a,b</span><br><span class="line">          CSV += row + &apos;\r\n&apos;; // 添加换行符号</span><br><span class="line">      &#125;</span><br><span class="line">      // 具体的数据处理</span><br><span class="line">      data.map(function(n) &#123;</span><br><span class="line">          row = &apos;&apos;;</span><br><span class="line">          // 如果存在自定义key值</span><br><span class="line">          if (columns.key.length) &#123;</span><br><span class="line">              columns.key.map(function(m) &#123;</span><br><span class="line">                  row += &apos;&quot;&apos; + (typeof columns.formatter === &apos;function&apos; ? columns.formatter(m, n[m]) || n[m] : n[m]) + &apos;&quot;,&apos;;</span><br><span class="line">              &#125;);</span><br><span class="line">          &#125; else &#123;</span><br><span class="line">              for (key in n) &#123;</span><br><span class="line">                  row += &apos;&quot;&apos; + (typeof columns.formatter === &apos;function&apos; ? columns.formatter(key, n[key]) || n[key] : n[key]) + &apos;&quot;,&apos;;</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">          row.slice(0, row.length - 1); // 删除最后一个,</span><br><span class="line">          CSV += row + &apos;\r\n&apos;; // 添加换行符号</span><br><span class="line">      &#125;);</span><br><span class="line">      if(!CSV) return;</span><br><span class="line">      this.SaveAs(fileName, CSV);</span><br><span class="line">    &#125;,</span><br><span class="line">    SaveAs: function(fileName, csvData) &#123;</span><br><span class="line">      var bw = this.browser();</span><br><span class="line">      if(!bw[&apos;edge&apos;] &amp;&amp; !bw[&apos;ie&apos;]) &#123;</span><br><span class="line">        var alink = document.createElement(&quot;a&quot;);</span><br><span class="line">        alink.id = &quot;linkDwnldLink&quot;;</span><br><span class="line">        alink.href = this.getDownloadUrl(csvData);</span><br><span class="line">        document.body.appendChild(alink);</span><br><span class="line">        var linkDom = document.getElementById(&apos;linkDwnldLink&apos;);</span><br><span class="line">        linkDom.setAttribute(&apos;download&apos;, fileName);</span><br><span class="line">        linkDom.click();</span><br><span class="line">        document.body.removeChild(linkDom);</span><br><span class="line">      &#125;</span><br><span class="line">      else if(bw[&apos;ie&apos;] &gt;= 10 || bw[&apos;edge&apos;] == &apos;edge&apos;) &#123;</span><br><span class="line">        var _utf = &quot;\uFEFF&quot;;</span><br><span class="line">        var _csvData = new Blob([_utf + csvData], &#123;</span><br><span class="line">            type: &apos;text/csv&apos;</span><br><span class="line">        &#125;);</span><br><span class="line">        window.navigator.msSaveBlob(_csvData, fileName);</span><br><span class="line">      &#125;</span><br><span class="line">      else &#123;</span><br><span class="line">        var oWin = window.top.open(&quot;about:blank&quot;, &quot;_blank&quot;);</span><br><span class="line">        oWin.document.write(&apos;sep=,\r\n&apos; + csvData);</span><br><span class="line">        oWin.document.close();</span><br><span class="line">        oWin.document.execCommand(&apos;SaveAs&apos;, true, fileName);</span><br><span class="line">        oWin.close();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    getDownloadUrl: function(csvData) &#123;</span><br><span class="line">      var _utf = &quot;\uFEFF&quot;; // 为了使Excel以utf-8的编码模式，同时也是解决中文乱码的问题</span><br><span class="line">      if (window.Blob &amp;&amp; window.URL &amp;&amp; window.URL.createObjectURL) &#123;</span><br><span class="line">          var csvData = new Blob([_utf + csvData], &#123;</span><br><span class="line">              type: &apos;text/csv&apos;</span><br><span class="line">          &#125;);</span><br><span class="line">          return URL.createObjectURL(csvData);</span><br><span class="line">      &#125;</span><br><span class="line">      // return &apos;data:attachment/csv;charset=utf-8,&apos; + _utf + encodeURIComponent(csvData);</span><br><span class="line">    &#125;,</span><br><span class="line">    browser: function() &#123;</span><br><span class="line">      var Sys = &#123;&#125;;</span><br><span class="line">      var ua = navigator.userAgent.toLowerCase();</span><br><span class="line">      var s;</span><br><span class="line">      (s = ua.indexOf(&apos;edge&apos;) !== - 1 ? Sys.edge = &apos;edge&apos; : ua.match(/rv:([\d.]+)\) like gecko/)) ? Sys.ie = s[1]:</span><br><span class="line">          (s = ua.match(/msie ([\d.]+)/)) ? Sys.ie = s[1] :</span><br><span class="line">          (s = ua.match(/firefox\/([\d.]+)/)) ? Sys.firefox = s[1] :</span><br><span class="line">          (s = ua.match(/chrome\/([\d.]+)/)) ? Sys.chrome = s[1] :</span><br><span class="line">          (s = ua.match(/opera.([\d.]+)/)) ? Sys.opera = s[1] :</span><br><span class="line">          (s = ua.match(/version\/([\d.]+).*safari/)) ? Sys.safari = s[1] : 0;</span><br><span class="line">      return Sys;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>下载操作，csv格式的数据是以 , 分隔的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">clickDownload()&#123;</span><br><span class="line">       JSonToCSV.setDataConver(&#123;</span><br><span class="line">         data: this.result,</span><br><span class="line">         fileName: &apos;下载&apos;,</span><br><span class="line">         columns: &#123;</span><br><span class="line">           title: [&apos;手机号码&apos;,&apos;地区&apos;,&apos;号码类型&apos;,&apos;结果&apos;],//csv表头</span><br><span class="line">           key: [&apos;mobile&apos;, &apos;area&apos;, &apos;numberType&apos;,&apos;status&apos;],</span><br><span class="line">           formatter: function(n, v) &#123;</span><br><span class="line">           if(n === &apos;status&apos;) &#123;</span><br><span class="line">             </span><br><span class="line">           &#125;</span><br><span class="line">           if(v === undefined)&#123;</span><br><span class="line">             return &quot; &quot;;</span><br><span class="line">           &#125;</span><br><span class="line">           &#125;</span><br><span class="line">         &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/input/" rel="tag"># input</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/uncategorized/vscode-lint-vue-file-by-standard-style-md/" rel="next" title="如何在vscode中用standard style 风格去验证 vue文件">
+                <i class="fa fa-chevron-left"></i> 如何在vscode中用standard style 风格去验证 vue文件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/uncategorized/input-upload-file-format/" rel="prev" title="file文件上传格式大全">
+                file文件上传格式大全 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">小周周</p>
+              <p class="site-description motion-element" itemprop="description">前端，读书，化妆品测评，分享心灵鸡汤，旅游见闻</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-文件上传input-DOM获取文本并展示"><span class="nav-number">1.</span> <span class="nav-text">1.文件上传input DOM获取文本并展示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-把数组导出为-csv文件，并要求数据符合文件格式"><span class="nav-number">2.</span> <span class="nav-text">2. 把数组导出为.csv文件，并要求数据符合文件格式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小周周</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

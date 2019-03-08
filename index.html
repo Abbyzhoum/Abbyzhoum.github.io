@@ -233,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://abbyz.js.org/uncategorized/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://abbyz.js.org/uncategorized/bootstrap-open-two-model-noScroll/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小周周">
@@ -252,7 +252,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/uncategorized/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/uncategorized/bootstrap-open-two-model-noScroll/" itemprop="url">bootstrap 嵌套模态框 二级模态框关闭导致一级模态框无法滚动</a></h1>
         
 
         <div class="post-meta">
@@ -264,8 +264,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-07T18:15:00+08:00">
-                2019-03-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-24T14:36:36+08:00">
+                2019-01-24
               </time>
             
 
@@ -304,15 +304,1625 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <p>备注：</p>
+<p><a href="https://v3.bootcss.com/javascript/#modals" target="_blank" rel="noopener">bootstrap 官网</a></p>
+<p>官方文档解释 ：</p>
+<blockquote>
+<p>不支持同时打开多个模态框<br>    千万不要在一个模态框上重叠另一个模态框。要想同时支持多个模态框，需要自己写额外的代码来实现。</p>
+</blockquote>
+<p>解决方法：<br>  在主模态框上加属性：<code>style=&quot;overflow-y: auto;&quot;</code></p>
+<p>示例：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;modal fade&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; data-backdrop=&quot;static&quot; style=&quot;overflow-y: auto;&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;modal-dialog modal-lg&quot; role=&quot;document&quot; style=&quot;width: 700px;&quot;&gt;</span><br><span class="line">      &lt;div class=&quot;modal-content&quot;&gt;</span><br><span class="line">          &lt;div class=&quot;modal-header&quot;&gt;</span><br><span class="line">              &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/span&gt;&lt;/button&gt;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://abbyz.js.org/uncategorized/say-Array-methods-about-js-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小周周">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一身仙女味">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/uncategorized/say-Array-methods-about-js-md/" itemprop="url">Array的方法总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-17T15:28:42+08:00">
+                2018-12-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Array的特有方法"><a href="#Array的特有方法" class="headerlink" title="Array的特有方法"></a>Array的特有方法</h3><h4 id="1-Array-find"><a href="#1-Array-find" class="headerlink" title="1. Array.find()"></a>1. Array.find()</h4><p>方法返回数组中满足提供的测试函数的第一个元素的值。否则返回 undefined。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var queueId = this.queues.find(function (elem) &#123;</span><br><span class="line">            return elem.code === code</span><br><span class="line">     &#125;).id</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-map"><a href="#2-map" class="headerlink" title="2.map()"></a>2.map()</h4><p>方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&apos;queue_nos&apos;: this.skills.map(function (item) &#123;</span><br><span class="line">return item + &apos;@&apos; + self.domain</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-forEach"><a href="#3-forEach" class="headerlink" title="3.forEach()"></a>3.forEach()</h4><p> 方法对数组的每个元素执行一次提供的函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">res.forEach((item) =&gt; &#123;</span><br><span class="line">    this.skills.push(item.skill)</span><br><span class="line">&#125;)</span><br><span class="line">this.skills = _.uniq(this.skills)</span><br><span class="line">console.log(this.skills)</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-filter"><a href="#4-filter" class="headerlink" title="4.filter()"></a>4.filter()</h4><p>方法创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">self.activities = res.filter(function (item) &#123;</span><br><span class="line">    return item.outboundType !== 3</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h4 id="5-every"><a href="#5-every" class="headerlink" title="5.every()"></a>5.every()</h4><p>方法测试数组的所有元素是否都通过了指定函数的测试。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function isBelowThreshold(currentValue) &#123;</span><br><span class="line">  return currentValue &lt; 40;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var array1 = [1, 30, 39, 29, 10, 13];</span><br><span class="line"></span><br><span class="line">console.log(array1.every(isBelowThreshold));</span><br><span class="line">// expected output: true</span><br></pre></td></tr></table></figure></p>
+<h4 id="6-Array-from"><a href="#6-Array-from" class="headerlink" title="6.Array.from()"></a>6.Array.from()</h4><p>方法从一个类似数组或可迭代对象中创建一个新的数组实例。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.log(Array.from(&apos;foo&apos;));</span><br><span class="line">// expected output: Array [&quot;f&quot;, &quot;o&quot;, &quot;o&quot;]</span><br><span class="line"></span><br><span class="line">console.log(Array.from([1, 2, 3], x =&gt; x + x));</span><br><span class="line">// expected output: Array [2, 4, 6]</span><br></pre></td></tr></table></figure></p>
+<h4 id="7-includes"><a href="#7-includes" class="headerlink" title="7.includes()"></a>7.includes()</h4><p>方法用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回 true，否则返回false。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if (self.query.search === &apos;&apos;) &#123;</span><br><span class="line">item.show = true</span><br><span class="line">&#125; else &#123;</span><br><span class="line">item.show = searchQuery.includes(self.query.search)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="8-some"><a href="#8-some" class="headerlink" title="8.some()"></a>8.some()</h4><p>方法测试数组中的某些元素是否通过由提供的函数实现的测试。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var array = [1, 2, 3, 4, 5];</span><br><span class="line"></span><br><span class="line">var even = function(element) &#123;</span><br><span class="line">  // checks whether an element is even</span><br><span class="line">  return element % 2 === 0;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">console.log(array.some(even));</span><br><span class="line">// expected output: true</span><br></pre></td></tr></table></figure></p>
+<h4 id="9-join"><a href="#9-join" class="headerlink" title="9.join()"></a>9.join()</h4><p>方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var elements = [&apos;Fire&apos;, &apos;Wind&apos;, &apos;Rain&apos;];                //join() 方法，不会改变数组</span><br><span class="line"></span><br><span class="line">console.log(elements.join());</span><br><span class="line">// expected output: Fire,Wind,Rain</span><br><span class="line"></span><br><span class="line">console.log(elements.join(&apos;&apos;));</span><br><span class="line">// expected output: FireWindRain</span><br><span class="line"></span><br><span class="line">console.log(elements.join(&apos;-&apos;));</span><br><span class="line">// expected output: Fire-Wind-Rain</span><br></pre></td></tr></table></figure></p>
+<h4 id="10-keys"><a href="#10-keys" class="headerlink" title="10.keys()"></a>10.keys()</h4><p>方法返回一个包含数组中每个索引键的Array Iterator对象。    返回的是下标值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var array1 = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];</span><br><span class="line">var iterator = array1.keys(); </span><br><span class="line">  </span><br><span class="line">for (let key of iterator) &#123;</span><br><span class="line">  console.log(key); // expected output: 0 1 2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="11-push"><a href="#11-push" class="headerlink" title="11.push()"></a>11.push()</h4><p>方法将一个或多个元素添加到数组的末尾，并返回新数组的长度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var animals = [&apos;pigs&apos;, &apos;goats&apos;, &apos;sheep&apos;];</span><br><span class="line"></span><br><span class="line">console.log(animals.push(&apos;cows&apos;));</span><br><span class="line">// expected output: 4</span><br><span class="line"></span><br><span class="line">console.log(animals);</span><br><span class="line">// expected output: Array [&quot;pigs&quot;, &quot;goats&quot;, &quot;sheep&quot;, &quot;cows&quot;]</span><br></pre></td></tr></table></figure></p>
+<h4 id="12-pop"><a href="#12-pop" class="headerlink" title="12.pop()"></a>12.pop()</h4><p>方法从数组中删除最后一个元素，并返回该元素的值。此方法更改数组的长度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var plants = [&apos;broccoli&apos;, &apos;cauliflower&apos;, &apos;cabbage&apos;, &apos;kale&apos;, &apos;tomato&apos;];</span><br><span class="line"></span><br><span class="line">console.log(plants.pop());</span><br><span class="line">// expected output: &quot;tomato&quot;</span><br><span class="line"></span><br><span class="line">console.log(plants);</span><br><span class="line">// expected output: Array [&quot;broccoli&quot;, &quot;cauliflower&quot;, &quot;cabbage&quot;, &quot;kale&quot;]</span><br><span class="line"></span><br><span class="line">plants.pop();</span><br></pre></td></tr></table></figure></p>
+<h4 id="13-reverse"><a href="#13-reverse" class="headerlink" title="13.reverse()"></a>13.reverse()</h4><p>方法将数组中元素的位置颠倒。<br>第一个数组元素成为最后一个数组元素，最后一个数组元素成为第一个。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var array1 = [&apos;one&apos;, &apos;two&apos;, &apos;three&apos;];              </span><br><span class="line">console.log(array1.reverse())            //  [&quot;three&quot;, &quot;two&quot;, &quot;one&quot;]              //返回的是改变后的数组</span><br><span class="line">console.log(array1)                //   [&quot;three&quot;, &quot;two&quot;, &quot;one&quot;]</span><br></pre></td></tr></table></figure></p>
+<h4 id="14-shift"><a href="#14-shift" class="headerlink" title="14.shift()"></a>14.shift()</h4><p>方法从数组中删除第一个元素，并返回该元素的值。此方法更改数组的长度。  从顶部|开头删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var array1 = [1, 2, 3];                            //返回被删除的值，原数组相应的也会改变</span><br><span class="line"></span><br><span class="line">var firstElement = array1.shift();</span><br><span class="line"></span><br><span class="line">console.log(array1);            //  [2, 3]</span><br><span class="line">console.log(firstElement);            // 1</span><br></pre></td></tr></table></figure></p>
+<h4 id="15-slice"><a href="#15-slice" class="headerlink" title="15.slice()"></a>15.slice()</h4><p>方法返回一个从开始到结束（不包括结束）选择的数组的一部分浅拷贝到一个新数组对象。且原始数组不会被修改。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var animals = [&apos;ant&apos;, &apos;bison&apos;, &apos;camel&apos;, &apos;duck&apos;, &apos;elephant&apos;];                //slice含头不含尾</span><br><span class="line"></span><br><span class="line">console.log(animals.slice(2));        // [&quot;camel&quot;, &quot;duck&quot;, &quot;elephant&quot;]</span><br><span class="line"></span><br><span class="line">console.log(animals.slice(2, 4));            // [&quot;camel&quot;, &quot;duck&quot;]</span><br><span class="line"></span><br><span class="line">console.log(animals.slice(1, 5));        // [&quot;bison&quot;, &quot;camel&quot;, &quot;duck&quot;, &quot;elephant&quot;]</span><br></pre></td></tr></table></figure></p>
+<h4 id="16-splice"><a href="#16-splice" class="headerlink" title="16.splice()"></a>16.splice()</h4><p>方法通过删除现有元素和/或添加新元素来更改一个数组的内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var months = [&apos;Jan&apos;, &apos;March&apos;, &apos;April&apos;, &apos;June&apos;];</span><br><span class="line">months.splice(1, 0, &apos;Feb&apos;);</span><br><span class="line">// inserts at 1st index position</span><br><span class="line">console.log(months);</span><br><span class="line">// expected output: Array [&apos;Jan&apos;, &apos;Feb&apos;, &apos;March&apos;, &apos;April&apos;, &apos;June&apos;]</span><br><span class="line"></span><br><span class="line">months.splice(4, 1, &apos;May&apos;);</span><br><span class="line">// replaces 1 element at 4th index</span><br><span class="line">console.log(months);</span><br><span class="line">// expected output: Array [&apos;Jan&apos;, &apos;Feb&apos;, &apos;March&apos;, &apos;April&apos;, &apos;May&apos;]</span><br></pre></td></tr></table></figure></p>
+<h4 id="17-sort"><a href="#17-sort" class="headerlink" title="17.sort()"></a>17.sort()</h4><p>方法用原地算法对数组的元素进行排序，并返回数组。排序不一定是稳定的。默认排序顺序是根据字符串Unicode码点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var array1 = [1, 30, 4, 21];</span><br><span class="line">array1.sort();</span><br><span class="line">console.log(array1)            //   [1, 21, 30, 4]</span><br></pre></td></tr></table></figure></p>
+<h4 id="18-unshift"><a href="#18-unshift" class="headerlink" title="18.unshift()"></a>18.unshift()</h4><p>方法将一个或多个元素添加到数组的开头，并返回新数组的长度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var array1 = [1, 2, 3];</span><br><span class="line"></span><br><span class="line">console.log(array1.unshift(4, 5));            //    5</span><br><span class="line"></span><br><span class="line">console.log(array1);                // [4, 5, 1, 2, 3]</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://abbyz.js.org/uncategorized/regular-expression-js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小周周">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一身仙女味">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/uncategorized/regular-expression-js/" itemprop="url">正则表达式小结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-17T15:03:24+08:00">
+                2018-12-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><code>备注：
+\D是\d的非数字字符，等价于等价于[^0-9]，说明了大写字符是小写字符的反义非</code></p>
+<h3 id="1-字符集"><a href="#1-字符集" class="headerlink" title="1.字符集"></a>1.字符集</h3><pre><code>一位数字: [0-9]
+一位大写字母: [A-Z]
+一位小写字母: [a-z]
+一位字母: [A-Za-z]
+一位数字或字母: [A-Za-z0-9]
+一位汉字: [\u4e00-\u9fa5]
+</code></pre><h3 id="2-预定义字符集"><a href="#2-预定义字符集" class="headerlink" title="2.预定义字符集"></a>2.预定义字符集</h3><pre><code>\d  一位数字 [0-9]
+\w  一位字母，数字或下划线[A-Za-z0-9_]
+\s   一位空字符: 空格，Tab…
+ .    通配符 可代表一切字符
+</code></pre><h3 id="3-正则表达式标志"><a href="#3-正则表达式标志" class="headerlink" title="3.正则表达式标志"></a>3.正则表达式标志</h3><pre><code>g    全局搜索。
+i    不区分大小写搜索。
+m    多行搜索。
+y    执行“粘性”搜索,匹配从目标字符串的当前位置开始，可以使用y标志。
+</code></pre><h3 id="4-使用正则表达式的方法"><a href="#4-使用正则表达式的方法" class="headerlink" title="4.使用正则表达式的方法"></a>4.使用正则表达式的方法</h3><pre><code>exec    一个在字符串中执行查找匹配的RegExp方法，它返回一个数组（未匹配到则返回null）。
+test    一个在字符串中测试是否匹配的RegExp方法，它返回true或false。
+match    一个在字符串中执行查找匹配的String方法，它返回一个数组或者在未匹配到时返回null。
+search    一个在字符串中测试匹配的String方法，它返回匹配到的位置索引，或者在失败时返回-1。
+replace    一个在字符串中执行查找匹配的String方法，并且使用替换字符串替换掉匹配到的子字符串。
+split    一个使用正则表达式或者一个固定字符串分隔一个字符串，并将分隔后的子字符串存储到数组中的String方法。
+</code></pre><p>5.正则表达式匹配规则<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">具体请参考官网:https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions#special-questionmark</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>含义</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\</code></td>
+<td>`转义字符,用于匹配一些保留的字符 [ ] ( ) { } . * + ? ^ $ \</td>
+<td>/a*/ 代表会匹配 0 个或者多个 a`</td>
+</tr>
+<tr>
+<td>^</td>
+<td>从开始行开始匹配.</td>
+<td>/^A/ 并不会匹配 “an A” 中的 ‘A’，但是会匹配 “An E” 中的 ‘A’</td>
+</tr>
+<tr>
+<td>$</td>
+<td>从末端开始匹配</td>
+<td>/t$/ 并不会匹配 “eater” 中的 ‘t’，但是会匹配 “eat” 中的 ‘t’</td>
+</tr>
+<tr>
+<td>*</td>
+<td>匹配&gt;=0个重复的在*号之前的字符</td>
+<td>/bo*/会匹配 “A ghost boooooed” 中的 ‘booooo’ 和 “A bird warbled” 中的 ‘b’，但是在 “A goat grunted” 中将不会匹配任何东西</td>
+</tr>
+<tr>
+<td>+</td>
+<td>匹配&gt;=1个重复的+号前的字符</td>
+<td>/a+/匹配了在 “candy” 中的 ‘a’，和在 “caaaaaaandy” 中所有的 ‘a’</td>
+</tr>
+<tr>
+<td>?</td>
+<td>匹配前面一个表达式0次或者1次。等价于 {0,1}</td>
+<td>/e?le?/ 匹配 “angel” 中的 ‘el’，和 “angle” 中的 ‘le’ 以及”oslo’ 中的’l’</td>
+</tr>
+<tr>
+<td>.</td>
+<td>匹配任意单个字符除了换行符</td>
+<td>/.n/将会匹配 “nay, an apple is on the tree” 中的 ‘an’ 和 ‘on’，但是不会匹配 ‘nay’</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>n 和 m 都是整数。匹配前面的字符至少n次，最多m次。如果 n 或者 m 的值是0， 这个值被忽略</td>
+<td>/a{1, 3}/ 并不匹配“cndy”中的任意字符，匹配“candy”中的a</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>匹配一个数字。等价于[0-9]。</td>
+<td>/\d/ 或者 /[0-9]/ 匹配”B2 is the suite number.”中的’2’</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>匹配一个非数字字符。等价于[^0-9]。</td>
+<td>/\D/ 或者 /[^0-9]/ 匹配”B2 is the suite number.”中的’B’ </td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配一个空白字符，包括空格、制表符、换页符和换行符。</td>
+<td>/\s\w*/ 匹配”foo bar.”中的’ bar’</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>匹配一个单字字符（字母、数字或者下划线）。等价于[A-Za-z0-9_]。</td>
+<td>/\w/ 匹配 “apple,” 中的 ‘a’，”$5.28,”中的 ‘5’ 和 “3D.” 中的 ‘3’</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>它返回最后的第n个子捕获匹配的子字符串(捕获的数目以左括号计数)</td>
+<td>/apple(,)\sorange\1/ 匹配”apple, orange, cherry, peach.”中的’apple, orange,’</td>
+</tr>
+<tr>
+<td>[xyz]</td>
+<td>字符集, 匹配与 xyz 完全相等的字符串</td>
+<td>[abcd] 和[a-d]是一样的，”brisket”中得‘b’,也都匹配“city”中的‘c’</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://abbyz.js.org/uncategorized/js-event-type-all/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小周周">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一身仙女味">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/uncategorized/js-event-type-all/" itemprop="url">js事件类型一览表</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-30T16:57:55+08:00">
+                2018-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-存储事件"><a href="#1-存储事件" class="headerlink" title="1.存储事件"></a>1.存储事件</h3><blockquote>
+<p>change      <code>用户改变域的内容</code><br>   storage     <code>存储区域（localStorage或sessionStorage）时会触发该事件</code></p>
+</blockquote>
+<h3 id="2-焦点事件"><a href="#2-焦点事件" class="headerlink" title="2.焦点事件"></a>2.焦点事件</h3><blockquote>
+<p>onblur    <code>元素失去焦点  （不会冒泡）</code><br>  onfocus   <code>元素获得焦点  （不会冒泡）</code></p>
+</blockquote>
+<h3 id="3-websocket事件"><a href="#3-websocket事件" class="headerlink" title="3. websocket事件"></a>3. websocket事件</h3><blockquote>
+<p>open          <code>WebSocket连接已建立</code><br>  message    <code>通过WebSocket接收到一条消息</code><br>  error          <code>WebSocket连接异常被关闭（比如有些数据无法发送）</code><br>  close        <code>WebSocket连接已关闭</code></p>
+</blockquote>
+<h3 id="3-表单事件"><a href="#3-表单事件" class="headerlink" title="3. 表单事件"></a>3. 表单事件</h3><blockquote>
+<p>onsubmit      <code>提交按钮被点击</code><br>  onreset        <code>重置按钮被点击</code></p>
+</blockquote>
+<h3 id="3-键盘事件"><a href="#3-键盘事件" class="headerlink" title="3. 键盘事件"></a>3. 键盘事件</h3><blockquote>
+<p>onkeyup         <code>某个键盘的键被松开</code><br>  onkeydown    <code>某个键盘的键被按下</code><br>  onkeypress    <code>某个键盘的键被按下或按住</code></p>
+</blockquote>
+<h3 id="3-视图事件"><a href="#3-视图事件" class="headerlink" title="3. 视图事件"></a>3. 视图事件</h3><blockquote>
+<p>resize     <code>窗口或框架被调整尺寸</code><br>  scroll     <code>窗口的滚动事件</code></p>
+</blockquote>
+<h3 id="3-鼠标事件"><a href="#3-鼠标事件" class="headerlink" title="3. 鼠标事件"></a>3. 鼠标事件</h3><blockquote>
+<p>mouseenter         <code>鼠标进入某元素内</code><br>   mousemove          <code>鼠标被移动</code><br>   mouseover           <code>鼠标被移到某元素之上</code><br>   mousedown         <code>某个鼠标按键被按下</code><br>   mouseup             <code>某个鼠标按键被松开</code><br>   mouseleave         <code>指针移出元素范围外（不冒泡）</code><br>   mouseout            <code>鼠标从某元素移开</code><br>   contextmenu       <code>右键点击</code><br>   click                   <code>鼠标点击某个对象</code><br>   select                <code>文本被选定</code></p>
+</blockquote>
+<h3 id="3-拖拽事件"><a href="#3-拖拽事件" class="headerlink" title="3. 拖拽事件"></a>3. 拖拽事件</h3><blockquote>
+<p> dragstart         <code>用户开始拖动HTML元素或选中的文本</code><br>   drag              <code>正在拖动元素或文本选区（在此过程中持续触发，每350ms触发一次）</code><br>   dragend          <code>拖放操作结束 （松开鼠标按钮或按下Esc键</code><br>   dragenter        <code>被拖动的元素或文本选区移入有效释放目标区</code><br>   dragover       <code>被拖动的元素或文本选区正在有效释放目标上被拖动（在此过程中持续触发，每350ms触发一次）</code><br>   dragleave       <code>被拖动的元素或文本选区移出有效释放目标区</code><br>   drop              <code>元素在有效释放目标区上释放</code></p>
+</blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Events" target="_blank" rel="noopener">具体参照MDN官网</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://abbyz.js.org/uncategorized/input-upload-file-format/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小周周">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一身仙女味">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/uncategorized/input-upload-file-format/" itemprop="url">file文件上传格式大全</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-30T16:03:46+08:00">
+                2018-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="哇-file文件上传格式整理完了，给我自己奖励一个鸡腿"><a href="#哇-file文件上传格式整理完了，给我自己奖励一个鸡腿" class="headerlink" title="哇,file文件上传格式整理完了，给我自己奖励一个鸡腿"></a>哇,file文件上传格式整理完了，给我自己奖励一个鸡腿</h1><table>
+<thead>
+<tr>
+<th>文件后缀</th>
+<th>type类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*.3gpp</td>
+<td>audio/3gpp， video/3gpp</td>
+<td>3GPP Audio/Video</td>
+</tr>
+<tr>
+<td>*.ac3</td>
+<td>audio/ac3</td>
+<td>AC3 Audio</td>
+</tr>
+<tr>
+<td>*.asf</td>
+<td>allpication/vnd.ms-asf</td>
+<td>Advanced Streaming Format</td>
+</tr>
+<tr>
+<td>*.au</td>
+<td>audio/basic</td>
+<td>AU Audio</td>
+</tr>
+<tr>
+<td>*.css</td>
+<td>text/css</td>
+<td>Cascading Style Sheets</td>
+</tr>
+<tr>
+<td>*.csv</td>
+<td>text/csv</td>
+<td>Comma Separated Values</td>
+</tr>
+<tr>
+<td>*.doc</td>
+<td>application/msword</td>
+<td>MS Word Document</td>
+</tr>
+<tr>
+<td>*.dot</td>
+<td>application/msword</td>
+<td>MS Word Template</td>
+</tr>
+<tr>
+<td>*.dtd</td>
+<td>application/xml-dtd</td>
+<td>Document Type Definition</td>
+</tr>
+<tr>
+<td>*.dwg</td>
+<td>image/vnd.dwg</td>
+<td>AutoCAD Drawing Database</td>
+</tr>
+<tr>
+<td>*.dxf</td>
+<td>image/vnd.dxf</td>
+<td>AutoCAD Drawing Interchange Format</td>
+</tr>
+<tr>
+<td>*.gif</td>
+<td>image/gif</td>
+<td>Graphic Interchange Format</td>
+</tr>
+<tr>
+<td>*.htm</td>
+<td>text/html</td>
+<td>HyperText Markup Language</td>
+</tr>
+<tr>
+<td>*.html</td>
+<td>text/html</td>
+<td>HyperText Markup Language</td>
+</tr>
+<tr>
+<td>*.jp2</td>
+<td>image/jp2</td>
+<td>JPEG-2000</td>
+</tr>
+<tr>
+<td>*.jpe</td>
+<td>image/jpeg</td>
+<td>JPEG</td>
+</tr>
+<tr>
+<td>*.jpeg</td>
+<td>image/jpeg</td>
+<td>JPEG</td>
+</tr>
+<tr>
+<td>*.jpg</td>
+<td>image/jpeg</td>
+<td>JPEG</td>
+</tr>
+<tr>
+<td>*.js</td>
+<td>text/javascript， application/javascript</td>
+<td>JavaScript</td>
+</tr>
+<tr>
+<td>*.json</td>
+<td>application/json</td>
+<td>JavaScript Object Notation</td>
+</tr>
+<tr>
+<td>*.mp2</td>
+<td>audio/mpeg， video/mpeg</td>
+<td>MPEG Audio/Video Stream， Layer II</td>
+</tr>
+<tr>
+<td>*.mp3</td>
+<td>audio/mpeg</td>
+<td>MPEG Audio Stream， Layer III</td>
+</tr>
+<tr>
+<td>*.mp4</td>
+<td>audio/mp4， video/mp4</td>
+<td>MPEG-4 Audio/Video</td>
+</tr>
+<tr>
+<td>*.mpeg</td>
+<td>video/mpeg</td>
+<td>MPEG Video Stream， Layer II</td>
+</tr>
+<tr>
+<td>*.mpg</td>
+<td>video/mpeg</td>
+<td>MPEG Video Stream， Layer II</td>
+</tr>
+<tr>
+<td>*.mpp</td>
+<td>application/vnd.ms-project</td>
+<td>MS Project Project</td>
+</tr>
+<tr>
+<td>*.ogg</td>
+<td>application/ogg， audio/ogg</td>
+<td>Ogg Vorbis</td>
+</tr>
+<tr>
+<td>*.pdf</td>
+<td>application/pdf</td>
+<td>Portable Document Format</td>
+</tr>
+<tr>
+<td>*.png</td>
+<td>image/png</td>
+<td>Portable Network Graphics</td>
+</tr>
+<tr>
+<td>*.pot</td>
+<td>application/vnd.ms-powerpoint</td>
+<td>MS PowerPoint Template</td>
+</tr>
+<tr>
+<td>*.pps</td>
+<td>application/vnd.ms-powerpoint</td>
+<td>MS PowerPoint Slideshow</td>
+</tr>
+<tr>
+<td>*.ppt</td>
+<td>application/vnd.ms-powerpoint</td>
+<td>MS PowerPoint Presentation</td>
+</tr>
+<tr>
+<td>*.rtf</td>
+<td>application/rtf， text/rtf</td>
+<td>Rich Text Format</td>
+</tr>
+<tr>
+<td>*.svf</td>
+<td>image/vnd.svf</td>
+<td>Simple Vector Format</td>
+</tr>
+<tr>
+<td>*.tif</td>
+<td>image/tiff</td>
+<td>Tagged Image Format File</td>
+</tr>
+<tr>
+<td>*.tiff</td>
+<td>image/tiff</td>
+<td>Tagged Image Format File</td>
+</tr>
+<tr>
+<td>*.txt</td>
+<td>text/plain</td>
+<td>Plain Text</td>
+</tr>
+<tr>
+<td>*.wdb</td>
+<td>application/vnd.ms-works</td>
+<td>MS Works Database</td>
+</tr>
+<tr>
+<td>*.wps</td>
+<td>application/vnd.ms-works</td>
+<td>Works Text Document</td>
+</tr>
+<tr>
+<td>*.xhtml</td>
+<td>application/xhtml+xml</td>
+<td>Extensible HyperText Markup Language</td>
+</tr>
+<tr>
+<td>*.xlc</td>
+<td>application/vnd.ms-excel</td>
+<td>MS Excel Chart</td>
+</tr>
+<tr>
+<td>*.xlm</td>
+<td>application/vnd.ms-excel</td>
+<td>MS Excel Macro</td>
+</tr>
+<tr>
+<td>*.xls</td>
+<td>application/vnd.ms-excel</td>
+<td>MS Excel Spreadsheet</td>
+</tr>
+<tr>
+<td>*.xlt</td>
+<td>application/vnd.ms-excel</td>
+<td>MS Excel Template</td>
+</tr>
+<tr>
+<td>*.xlw</td>
+<td>application/vnd.ms-excel</td>
+<td>MS Excel Workspace</td>
+</tr>
+<tr>
+<td>*.xml</td>
+<td>text/xml， application/xml</td>
+<td>Extensible Markup Language</td>
+</tr>
+<tr>
+<td>*.zip</td>
+<td>aplication/zip</td>
+<td>Compressed Archive</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://abbyz.js.org/uncategorized/input-uploadAndread-File-by-FileReader/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小周周">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一身仙女味">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/uncategorized/input-uploadAndread-File-by-FileReader/" itemprop="url">纯js读取csv文件, by DOM</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-30T14:48:51+08:00">
+                2018-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>备注： input输入框当type为file时–&gt;导入文件，本地文件的导入与读取并展示出来，相当于像本地发送请求，我之前一直困惑于这种情况下是向本地发送请求，我用的是 $.getJSON(),却一直报错说我是跨域问题，后来我的小领导指出我的问题，说是这个阔以直接通过DOM直接获取内容并展示，这种方法很简便，所以分享….</p>
+<h1 id="1-文件上传input-DOM获取文本并展示"><a href="#1-文件上传input-DOM获取文本并展示" class="headerlink" title="1.文件上传input DOM获取文本并展示"></a>1.文件上传input DOM获取文本并展示</h1><p>这段代码是监控input输入框的change事件，data就是你所上传文件的内容，但是要注意看FileReader文档，如果是json文件的话，可能会乱码哦！！！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">handleChange:function (e) &#123;</span><br><span class="line">      var that = this</span><br><span class="line">      if(!e.target.files[0])&#123;</span><br><span class="line">        return</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      var rABS = typeof FileReader !== &apos;undefined&apos; &amp;&amp; typeof FileReader.prototype !== &apos;undefined&apos; &amp;&amp; typeof FileReader.prototype.readAsBinaryString !== &apos;undefined&apos;;  </span><br><span class="line">      var reader=new FileReader();</span><br><span class="line">      if(rABS)&#123;</span><br><span class="line">        reader.readAsBinaryString(e.target.files[0]);//发起异步请求</span><br><span class="line">      &#125;else&#123;</span><br><span class="line">        reader.readAsArrayBuffer(e.target.files[0]);//发起异步请求</span><br><span class="line">      &#125;</span><br><span class="line">  </span><br><span class="line">  reader.onload = function(e) &#123;</span><br><span class="line">      var data = e.target.result;</span><br><span class="line">     &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="2-把数组导出为-csv文件，并要求数据符合文件格式"><a href="#2-把数组导出为-csv文件，并要求数据符合文件格式" class="headerlink" title="2. 把数组导出为.csv文件，并要求数据符合文件格式"></a>2. 把数组导出为.csv文件，并要求数据符合文件格式</h1><p>数组的格式处理：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">var JSonToCSV = &#123;</span><br><span class="line">    /*</span><br><span class="line">     * obj是一个对象，其中包含有：</span><br><span class="line">     * ## data 是导出的具体数据</span><br><span class="line">     * ## fileName 是导出时保存的文件名称 是string格式</span><br><span class="line">     * ## showLabel 表示是否显示表头 默认显示 是布尔格式</span><br><span class="line">     * ## columns 是表头对象，且title和key必须一一对应，包含有</span><br><span class="line">          title:[], // 表头展示的文字</span><br><span class="line">          key:[], // 获取数据的Key</span><br><span class="line">          formatter: function() // 自定义设置当前数据的 传入(key, value)</span><br><span class="line">     */</span><br><span class="line">    setDataConver: function(obj) &#123;</span><br><span class="line">      var bw = this.browser();</span><br><span class="line">      if(bw[&apos;ie&apos;] &lt; 9) return; // IE9以下的</span><br><span class="line">      var data = obj[&apos;data&apos;],</span><br><span class="line">          ShowLabel = typeof obj[&apos;showLabel&apos;] === &apos;undefined&apos; ? true : obj[&apos;showLabel&apos;],</span><br><span class="line">          fileName = (obj[&apos;fileName&apos;] || &apos;UserExport&apos;) + &apos;.csv&apos;,</span><br><span class="line">          columns = obj[&apos;columns&apos;] || &#123;</span><br><span class="line">              title: [],</span><br><span class="line">              key: [],</span><br><span class="line">              formatter: undefined</span><br><span class="line">          &#125;;</span><br><span class="line">      var ShowLabel = typeof ShowLabel === &apos;undefined&apos; ? true : ShowLabel;</span><br><span class="line">      var row = &quot;&quot;, CSV = &apos;&apos;, key;</span><br><span class="line">      // 如果要现实表头文字</span><br><span class="line">      if (ShowLabel) &#123;</span><br><span class="line">          // 如果有传入自定义的表头文字</span><br><span class="line">          if (columns.title.length) &#123;</span><br><span class="line">              columns.title.map(function(n) &#123;</span><br><span class="line">                  row += n + &apos;,&apos;;</span><br><span class="line">              &#125;);</span><br><span class="line">          &#125; else &#123;</span><br><span class="line">              // 如果没有，就直接取数据第一条的对象的属性</span><br><span class="line">              for (key in data[0]) row += key + &apos;,&apos;;</span><br><span class="line">          &#125;</span><br><span class="line">          row = row.slice(0, -1); // 删除最后一个,号，即a,b, =&gt; a,b</span><br><span class="line">          CSV += row + &apos;\r\n&apos;; // 添加换行符号</span><br><span class="line">      &#125;</span><br><span class="line">      // 具体的数据处理</span><br><span class="line">      data.map(function(n) &#123;</span><br><span class="line">          row = &apos;&apos;;</span><br><span class="line">          // 如果存在自定义key值</span><br><span class="line">          if (columns.key.length) &#123;</span><br><span class="line">              columns.key.map(function(m) &#123;</span><br><span class="line">                  row += &apos;&quot;&apos; + (typeof columns.formatter === &apos;function&apos; ? columns.formatter(m, n[m]) || n[m] : n[m]) + &apos;&quot;,&apos;;</span><br><span class="line">              &#125;);</span><br><span class="line">          &#125; else &#123;</span><br><span class="line">              for (key in n) &#123;</span><br><span class="line">                  row += &apos;&quot;&apos; + (typeof columns.formatter === &apos;function&apos; ? columns.formatter(key, n[key]) || n[key] : n[key]) + &apos;&quot;,&apos;;</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">          row.slice(0, row.length - 1); // 删除最后一个,</span><br><span class="line">          CSV += row + &apos;\r\n&apos;; // 添加换行符号</span><br><span class="line">      &#125;);</span><br><span class="line">      if(!CSV) return;</span><br><span class="line">      this.SaveAs(fileName, CSV);</span><br><span class="line">    &#125;,</span><br><span class="line">    SaveAs: function(fileName, csvData) &#123;</span><br><span class="line">      var bw = this.browser();</span><br><span class="line">      if(!bw[&apos;edge&apos;] &amp;&amp; !bw[&apos;ie&apos;]) &#123;</span><br><span class="line">        var alink = document.createElement(&quot;a&quot;);</span><br><span class="line">        alink.id = &quot;linkDwnldLink&quot;;</span><br><span class="line">        alink.href = this.getDownloadUrl(csvData);</span><br><span class="line">        document.body.appendChild(alink);</span><br><span class="line">        var linkDom = document.getElementById(&apos;linkDwnldLink&apos;);</span><br><span class="line">        linkDom.setAttribute(&apos;download&apos;, fileName);</span><br><span class="line">        linkDom.click();</span><br><span class="line">        document.body.removeChild(linkDom);</span><br><span class="line">      &#125;</span><br><span class="line">      else if(bw[&apos;ie&apos;] &gt;= 10 || bw[&apos;edge&apos;] == &apos;edge&apos;) &#123;</span><br><span class="line">        var _utf = &quot;\uFEFF&quot;;</span><br><span class="line">        var _csvData = new Blob([_utf + csvData], &#123;</span><br><span class="line">            type: &apos;text/csv&apos;</span><br><span class="line">        &#125;);</span><br><span class="line">        window.navigator.msSaveBlob(_csvData, fileName);</span><br><span class="line">      &#125;</span><br><span class="line">      else &#123;</span><br><span class="line">        var oWin = window.top.open(&quot;about:blank&quot;, &quot;_blank&quot;);</span><br><span class="line">        oWin.document.write(&apos;sep=,\r\n&apos; + csvData);</span><br><span class="line">        oWin.document.close();</span><br><span class="line">        oWin.document.execCommand(&apos;SaveAs&apos;, true, fileName);</span><br><span class="line">        oWin.close();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    getDownloadUrl: function(csvData) &#123;</span><br><span class="line">      var _utf = &quot;\uFEFF&quot;; // 为了使Excel以utf-8的编码模式，同时也是解决中文乱码的问题</span><br><span class="line">      if (window.Blob &amp;&amp; window.URL &amp;&amp; window.URL.createObjectURL) &#123;</span><br><span class="line">          var csvData = new Blob([_utf + csvData], &#123;</span><br><span class="line">              type: &apos;text/csv&apos;</span><br><span class="line">          &#125;);</span><br><span class="line">          return URL.createObjectURL(csvData);</span><br><span class="line">      &#125;</span><br><span class="line">      // return &apos;data:attachment/csv;charset=utf-8,&apos; + _utf + encodeURIComponent(csvData);</span><br><span class="line">    &#125;,</span><br><span class="line">    browser: function() &#123;</span><br><span class="line">      var Sys = &#123;&#125;;</span><br><span class="line">      var ua = navigator.userAgent.toLowerCase();</span><br><span class="line">      var s;</span><br><span class="line">      (s = ua.indexOf(&apos;edge&apos;) !== - 1 ? Sys.edge = &apos;edge&apos; : ua.match(/rv:([\d.]+)\) like gecko/)) ? Sys.ie = s[1]:</span><br><span class="line">          (s = ua.match(/msie ([\d.]+)/)) ? Sys.ie = s[1] :</span><br><span class="line">          (s = ua.match(/firefox\/([\d.]+)/)) ? Sys.firefox = s[1] :</span><br><span class="line">          (s = ua.match(/chrome\/([\d.]+)/)) ? Sys.chrome = s[1] :</span><br><span class="line">          (s = ua.match(/opera.([\d.]+)/)) ? Sys.opera = s[1] :</span><br><span class="line">          (s = ua.match(/version\/([\d.]+).*safari/)) ? Sys.safari = s[1] : 0;</span><br><span class="line">      return Sys;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>下载操作，csv格式的数据是以 , 分隔的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">clickDownload()&#123;</span><br><span class="line">       JSonToCSV.setDataConver(&#123;</span><br><span class="line">         data: this.result,</span><br><span class="line">         fileName: &apos;下载&apos;,</span><br><span class="line">         columns: &#123;</span><br><span class="line">           title: [&apos;手机号码&apos;,&apos;地区&apos;,&apos;号码类型&apos;,&apos;结果&apos;],//csv表头</span><br><span class="line">           key: [&apos;mobile&apos;, &apos;area&apos;, &apos;numberType&apos;,&apos;status&apos;],</span><br><span class="line">           formatter: function(n, v) &#123;</span><br><span class="line">           if(n === &apos;status&apos;) &#123;</span><br><span class="line">             </span><br><span class="line">           &#125;</span><br><span class="line">           if(v === undefined)&#123;</span><br><span class="line">             return &quot; &quot;;</span><br><span class="line">           &#125;</span><br><span class="line">           &#125;</span><br><span class="line">         &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://abbyz.js.org/uncategorized/vscode-lint-vue-file-by-standard-style-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小周周">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一身仙女味">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/uncategorized/vscode-lint-vue-file-by-standard-style-md/" itemprop="url">如何在vscode中用standard style 风格去验证 vue文件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-15T18:03:37+08:00">
+                2018-11-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-JavaScript-Standard-Style简介"><a href="#1-JavaScript-Standard-Style简介" class="headerlink" title="1 JavaScript Standard Style简介"></a>1 JavaScript Standard Style简介</h1><p>本工具通过以下三种方式为你（及你的团队）节省大量时间：</p>
+<ul>
+<li>无须配置。 史上最便捷的统一代码风格的方式，轻松拥有。</li>
+<li>自动代码格式化。 只需运行 standard –fix 从此和脏乱差的代码说再见。</li>
+<li>提前发现风格及程序问题。 减少代码审查过程中反反复复的修改过程，节约时间。</li>
+<li>无须犹豫。再也不用维护 .eslintrc, .jshintrc, or .jscsrc 。开箱即用。</li>
+</ul>
+<p>安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i standard -g</span><br></pre></td></tr></table></figure></p>
+<p>关于<a href="https://standardjs.com/readme-zhcn.html" target="_blank" rel="noopener">JavaScript 代码规范</a>, 你可以点击链接看一下。</p>
+<h1 id="2-如何在vscode中用JavaScript-Standard-Style风格去验证-vue文件"><a href="#2-如何在vscode中用JavaScript-Standard-Style风格去验证-vue文件" class="headerlink" title="2 如何在vscode中用JavaScript Standard Style风格去验证 vue文件"></a>2 如何在vscode中用JavaScript Standard Style风格去验证 vue文件</h1><p>实际上<a href="https://marketplace.visualstudio.com/items?itemName=chenxsan.vscode-standardjs" target="_blank" rel="noopener">JavaScript Standard Style</a>有一个FAQ, 说明了如何使用。</p>
+<p>但是有一点非常重要的作者没有提到，就是<code>eslint-plugin-html这个插件必须要安装3.x.x版本的</code>, 现在<code>eslint-plugin-html</code>, 已经升级到4.x版本，默认不写版本号安装的就是4.x版本的，所以会出现问题。<a href="https://github.com/BenoitZugmeyer/eslint-plugin-html/issues/60" target="_blank" rel="noopener">参考</a></p>
+<blockquote>
+<p>ESLint v4 is only supported by eslint-plugin-html v3, so you can’t use eslint-plugin-html v1.5.2 with it (I should add a warning about this when trying to use the plugin with an incompatible version on ESLint).</p>
+</blockquote>
+<blockquote>
+<p>If you do not use ESLint v4, please provide more information (package.json, a gist to reproduce, …)</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// FAQ</span><br><span class="line">How to lint script tag in vue or html files?</span><br><span class="line"></span><br><span class="line">You can lint them with eslint-plugin-html, just install it first, then enable linting for those file types in settings.json with:</span><br><span class="line"></span><br><span class="line"> &quot;standard.validate&quot;: [</span><br><span class="line">     &quot;javascript&quot;,</span><br><span class="line">     &quot;javascriptreact&quot;,</span><br><span class="line">     &quot;html&quot;</span><br><span class="line"> ],</span><br><span class="line"> &quot;standard.options&quot;: &#123;</span><br><span class="line">     &quot;plugins&quot;: [&quot;html&quot;]</span><br><span class="line"> &#125;,</span><br><span class="line"> &quot;files.associations&quot;: &#123;</span><br><span class="line">     &quot;*.vue&quot;: &quot;html&quot;</span><br><span class="line"> &#125;,</span><br><span class="line">If you want to enable autoFix for the new languages, you should enable it yourself:</span><br><span class="line"></span><br><span class="line"> &quot;standard.validate&quot;: [</span><br><span class="line">     &quot;javascript&quot;,</span><br><span class="line">     &quot;javascriptreact&quot;,</span><br><span class="line">     &#123; &quot;language&quot;: &quot;html&quot;, &quot;autoFix&quot;: true &#125;</span><br><span class="line"> ],</span><br><span class="line"> &quot;standard.options&quot;: &#123;</span><br><span class="line">     &quot;plugins&quot;: [&quot;html&quot;]</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="3-综上，-整理一下安装思路"><a href="#3-综上，-整理一下安装思路" class="headerlink" title="3 综上， 整理一下安装思路"></a>3 综上， 整理一下安装思路</h1><h2 id="3-1-需要安装哪些包？"><a href="#3-1-需要安装哪些包？" class="headerlink" title="3.1 需要安装哪些包？"></a>3.1 需要安装哪些包？</h2><ul>
+<li><code>npm i -g standard</code></li>
+<li><code>npm i -g eslint-plugin-html@3.2.2</code> 必须是3x版本</li>
+<li><code>npm i -g eslint</code><br>以上三个包都是全局安装的，如果你想看看全局安装了哪些包可以用<code>npm list -g --depth=0</code>查看</li>
+</ul>
+<h2 id="3-2-vscode-config-如何写？"><a href="#3-2-vscode-config-如何写？" class="headerlink" title="3.2 vscode config 如何写？"></a>3.2 vscode config 如何写？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&quot;standard.validate&quot;: [</span><br><span class="line">  &quot;javascript&quot;,</span><br><span class="line">  &quot;javascriptreact&quot;,</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;language&quot;: &quot;html&quot;,</span><br><span class="line">    &quot;autoFix&quot;: true</span><br><span class="line">  &#125;</span><br><span class="line">],</span><br><span class="line">&quot;standard.options&quot;: &#123;</span><br><span class="line">  &quot;plugin&quot;: [&quot;html&quot;]</span><br><span class="line">&#125;,</span><br><span class="line">&quot;files.associations&quot;: &#123;</span><br><span class="line">  &quot;*.vue&quot;: &quot;html&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h2 id="3-3-如何在保存文件时，自动使用standard格式化vue文件"><a href="#3-3-如何在保存文件时，自动使用standard格式化vue文件" class="headerlink" title="3.3 如何在保存文件时，自动使用standard格式化vue文件"></a>3.3 如何在保存文件时，自动使用standard格式化vue文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;standard.autoFixOnSave&quot;: true</span><br></pre></td></tr></table></figure>
+<h2 id="4-如果还不行怎么办？"><a href="#4-如果还不行怎么办？" class="headerlink" title="4. 如果还不行怎么办？"></a>4. 如果还不行怎么办？</h2><ol>
+<li>重启一下vscode</li>
+<li>重启一下电脑</li>
+<li>在此文后追加评论</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://abbyz.js.org/uncategorized/what-is-this-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小周周">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一身仙女味">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/uncategorized/what-is-this-md/" itemprop="url">梳理了this的用法，并整理一下，供大家参考一下</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-15T17:39:10+08:00">
+                2018-11-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>this使用机制复杂，在开发容易出问题的根本原因在于：this是在运行时绑定，而不是在编写时绑定，this实际值取决于函数调用时的上下文。this的绑定和函数声明的位置没有关系，只取决于函数的调用方式。在JavaScript中，当函数被调用时，会创建一个活动记录（执行时上下文），这个记录包含函数在何处调用、函数的调用方法和传入参数等信息，this会记录其中一个属性。判断this实际绑定值，关键在于分析函数实际调用的位置。</p>
+<h2 id="1-说到this，就必须说到call-apply-bind-，先提前说一下"><a href="#1-说到this，就必须说到call-apply-bind-，先提前说一下" class="headerlink" title="1.说到this，就必须说到call(),apply(),bind()，先提前说一下"></a>1.说到this，就必须说到call(),apply(),bind()，先提前说一下</h2><p> 共同点: 都是替换函数中不想要的this为想要的对象<br> 何时: 只要一个函数调用时，其中的this不是想要的就可更换<br> 如何:</p>
+<h3 id="①-call-apply"><a href="#①-call-apply" class="headerlink" title="①. call/apply"></a>①. call/apply</h3><p>   强行调用指定函数，并临时替换函数中的this为指定对象<br>   强调: 立刻执行，且仅执行一次<br>        执行时，临时替换时，执行后this恢复原样<br>   如何: 指定函数.call(替换this的对象, 参数值,…..)<br>    如果不传参，默认指向window<br>   call vs apply: 参数值列表<br>    call: 要求传入函数的参数值列表，必须分别传入<br>    apply: 要求传入函数的参数值列表，必须放在数组中整体传入.</p>
+<h3 id="②-bind"><a href="#②-bind" class="headerlink" title="②. bind()"></a>②. bind()</h3><p>   什么是: 创建一个和原函数完全相同的函数，并永久绑定函数中的this为指定对象<br>   如何: var 新函数=原函数.bind(替换this的对象,参数值,…)<br>   基于原函数，创建一个新函数，并永久绑定this为指定对象call(),apply(),bind()</p>
+<h2 id="2-this的绑定规则"><a href="#2-this的绑定规则" class="headerlink" title="2.this的绑定规则"></a>2.this的绑定规则</h2><h3 id="①-new绑定"><a href="#①-new绑定" class="headerlink" title="①.new绑定"></a>①.new绑定</h3><pre><code>在JavaScript中使用new调用函数会自动执行下面的操作：
+（1）创建（或者说构造）一个全新的对象
+（2）对新对象执行原型链接
+（3）新对象会被绑定到函数的this
+（4）如果函数没有返回其他对象，那么 new 表达式中的函数调用会自动返回这个新对象
+</code></pre><p>代码块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function Book(name, author, isbn) &#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.author = author;</span><br><span class="line">    this.isbn = isbn;</span><br><span class="line">&#125;</span><br><span class="line">let book = new Book(&quot;Zakas&quot;, &quot;ES6&quot;, 12345);</span><br><span class="line">console.log(book.name);  //  &quot;Zakas&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="②-隐式绑定："><a href="#②-隐式绑定：" class="headerlink" title="②.隐式绑定："></a>②.隐式绑定：</h3><pre><code>当对象内部包含一个指向函数的属性，并且在调用时通过这个属性间接引用函数（obj.prop()的形式），那么函数内的this会隐式指向这个对象
+</code></pre><p>代码块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">    console.log(this.a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var obj = &#123;</span><br><span class="line">    a: 2,</span><br><span class="line">    foo: foo</span><br><span class="line">&#125;;</span><br><span class="line">obj.foo();  //  2</span><br></pre></td></tr></table></figure>
+<h3 id="③-显示绑定"><a href="#③-显示绑定" class="headerlink" title="③.显示绑定"></a>③.显示绑定</h3><pre><code>在某些情况下，我们希望函数内的this绑定在某些指定的对象上，这称为显示绑定。在JavaScript中可以使用call和apply为函数显示指定this绑定。call和apply的第一个参数是一个对象，这个对象会被绑定到this上：
+</code></pre><p>代码块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">    console.log(this.a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var obj = &#123;</span><br><span class="line">　　a:2</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">foo.call(obj);  //  2</span><br><span class="line">bind()显示绑定（硬绑定）</span><br><span class="line">unction foo(something) &#123;</span><br><span class="line">    this.a = something;</span><br><span class="line">&#125;</span><br><span class="line">var obj1 = &#123;&#125;;</span><br><span class="line">var bar = foo.bind(obj1);</span><br><span class="line">bar(2);</span><br><span class="line">console.log(obj1.a);  //  2</span><br></pre></td></tr></table></figure>
+<h3 id="④-默认绑定："><a href="#④-默认绑定：" class="headerlink" title="④.默认绑定："></a>④.默认绑定：</h3><pre><code>当使用独立函数调用（func()形式），会发生默认绑定，可以把这条规则看成是无法使用其他规则时的默认规则。
+</code></pre><p>代码块：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">    console.log( this.a );</span><br><span class="line">&#125;</span><br><span class="line">var a = 2;</span><br><span class="line">foo();  //  2</span><br></pre></td></tr></table></figure>
+<h2 id="3-绑定的优先级"><a href="#3-绑定的优先级" class="headerlink" title="3.绑定的优先级"></a>3.绑定的优先级</h2><h3 id="①-默认绑定的优先级最低，因为无法使用其他的绑定规则才会使用默认规则"><a href="#①-默认绑定的优先级最低，因为无法使用其他的绑定规则才会使用默认规则" class="headerlink" title="①.默认绑定的优先级最低，因为无法使用其他的绑定规则才会使用默认规则"></a>①.默认绑定的优先级最低，因为无法使用其他的绑定规则才会使用默认规则</h3><h3 id="②-显示绑定优先级高于隐式绑定"><a href="#②-显示绑定优先级高于隐式绑定" class="headerlink" title="②.显示绑定优先级高于隐式绑定"></a>②.显示绑定优先级高于隐式绑定</h3><p>代码块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">    console.log(this.a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var obj1 = &#123;a: 2, foo: foo&#125;;</span><br><span class="line">var obj2 = &#123;a: 3, foo: foo&#125;;</span><br><span class="line"></span><br><span class="line">obj1.foo();  //  2</span><br><span class="line">obj1.foo.call(obj2);  //  3</span><br></pre></td></tr></table></figure>
+<p>3：new绑定优先级高于隐式绑定<br>代码块：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function foo(something) &#123;</span><br><span class="line">    this.a = something;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var obj1 = &#123;</span><br><span class="line">    foo: foo</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var obj2 = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">obj1.foo(2);</span><br><span class="line">console.log(obj1.a);  //  2</span><br><span class="line"></span><br><span class="line">obj1.foo.call(obj2, 3);</span><br><span class="line">console.log(obj2.a);  //  3</span><br><span class="line"></span><br><span class="line">var bar = new obj1.foo(4);</span><br><span class="line">console.log(obj1.a);  //  2</span><br><span class="line">console.log(bar.a);  //  4</span><br></pre></td></tr></table></figure></p>
+<h1 id="4-总结"><a href="#4-总结" class="headerlink" title="4.总结"></a>4.总结</h1><p>如果要判断一个运行中函数的 this 绑定，就需要找到这个函数的直接调用位置。找到之后就可以顺序应用下面这四条规则来判断 this 的绑定对象。</p>
+<h4 id="①-由-new-调用？绑定到新创建的对象。"><a href="#①-由-new-调用？绑定到新创建的对象。" class="headerlink" title="①. 由 new 调用？绑定到新创建的对象。"></a>①. 由 new 调用？绑定到新创建的对象。</h4><h4 id="②-由-call-或者-apply-（或者-bind-）调用？绑定到指定的对象。"><a href="#②-由-call-或者-apply-（或者-bind-）调用？绑定到指定的对象。" class="headerlink" title="②. 由 call 或者 apply （或者 bind ）调用？绑定到指定的对象。"></a>②. 由 call 或者 apply （或者 bind ）调用？绑定到指定的对象。</h4><h4 id="③-由上下文对象调用？绑定到那个上下文对象。"><a href="#③-由上下文对象调用？绑定到那个上下文对象。" class="headerlink" title="③. 由上下文对象调用？绑定到那个上下文对象。"></a>③. 由上下文对象调用？绑定到那个上下文对象。</h4><h4 id="④-默认：在严格模式下绑定到-undefined-，否则绑定到全局对象。"><a href="#④-默认：在严格模式下绑定到-undefined-，否则绑定到全局对象。" class="headerlink" title="④. 默认：在严格模式下绑定到 undefined ，否则绑定到全局对象。"></a>④. 默认：在严格模式下绑定到 undefined ，否则绑定到全局对象。</h4><p>自我测试代码块：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">    var myObject = &#123;</span><br><span class="line">    foo: &quot;bar&quot;,</span><br><span class="line">    func: function() &#123;</span><br><span class="line">        var self = this;</span><br><span class="line">        var foo = &quot;1&quot;</span><br><span class="line">        console.log(&quot;outer func: this.foo = &quot; + this.foo);</span><br><span class="line">        console.log(&quot;outer func: self.foo = &quot; + self.foo);</span><br><span class="line">      </span><br><span class="line">        (function() &#123;</span><br><span class="line">            console.log(&quot;inner func: this.foo = &quot; + this.foo);</span><br><span class="line">            console.log(&quot;inner func: self.foo = &quot; + self.foo);</span><br><span class="line">        &#125;());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myObject.func()</span><br><span class="line"></span><br><span class="line">console.log(&apos;----------&apos;)</span><br><span class="line">var func = myObject.func</span><br><span class="line">func()</span><br><span class="line"></span><br><span class="line">console.log(&apos;----------&apos;)</span><br><span class="line">func.call(myObject)</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://abbyz.js.org/uncategorized/vi-useful-expressions-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小周周">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一身仙女味">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/uncategorized/vi-useful-expressions-md/" itemprop="url">VI必备常用场景快捷操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-15T17:36:24+08:00">
+                2018-11-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-【字符串替换】快速修改配置文件版本号"><a href="#1-【字符串替换】快速修改配置文件版本号" class="headerlink" title="1. 【字符串替换】快速修改配置文件版本号"></a>1. 【字符串替换】快速修改配置文件版本号</h1><p>语法：<code>%s/str1/str2/g</code> 将文件中所有的str1字符串替换成str2字符串。</p>
+<p>示例：某个服务从43版本升级到44版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// vi某个配置文件， 进入vi命令模式，输入</span><br><span class="line">:%s/43/44/g</span><br></pre></td></tr></table></figure>
+<p>这样做的好处是不需要移动光标去查找，然后进入插入模式去修改版本，而是直接替换，这样比较快捷。</p>
+<p>注意：<code>务必确认要被替换的字符串只有一个，否则可能造成误替换。</code></p>
+<p>更多用法：</p>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>功能</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:s/str1/str2/</code></td>
+<td>替换当前行<code>第一个</code>str1为str2</td>
+<td><code>:s/44/45</code></td>
+</tr>
+<tr>
+<td><code>:s/str1/str2/g</code></td>
+<td>替换当前行<code>所有的</code>str1为str2</td>
+<td><code>:s/44/45/g</code></td>
+</tr>
+<tr>
+<td><code>:%s/str1/str2/</code></td>
+<td>替换每一行<code>第一个</code>str1为str2</td>
+<td><code>:%s/44/45</code></td>
+</tr>
+<tr>
+<td><code>:%s/str1/str2/g</code></td>
+<td>替换每一行<code>所有的</code>str1为str2</td>
+<td><code>:%s/44/45/g</code></td>
+</tr>
+</tbody>
+</table>
+<h1 id="2-光标移动"><a href="#2-光标移动" class="headerlink" title="2. 光标移动"></a>2. 光标移动</h1><p>注意：可配合 <code>:set nu</code>显示行号</p>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>功能</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G</td>
+<td>移动到这个档案的最后一行(常用)</td>
+<td></td>
+</tr>
+<tr>
+<td>nG</td>
+<td>n 为数字。移动到这个档案的第 n 行。</td>
+<td>20G 则会移动到这个档案的第20行</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>移动到这个档案的第一行</td>
+<td></td>
+</tr>
+<tr>
+<td><code>n&lt;Enter&gt;</code></td>
+<td>n 为数字 光标向下移动 n 行</td>
+<td><code>3&lt;Enter&gt;</code> 向下移动三行</td>
+</tr>
+</tbody>
+</table>
+<h1 id="3-vi快捷手册"><a href="#3-vi快捷手册" class="headerlink" title="3. vi快捷手册"></a>3. vi快捷手册</h1><p><img src="/images/vi.png" alt><br><img src="/images/vi1.png" alt></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://abbyz.js.org/uncategorized/think-about-markdown-and-editor-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小周周">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一身仙女味">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/uncategorized/think-about-markdown-and-editor-md/" itemprop="url">markdwon、笔记、编辑器与缓存</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-15T17:33:51+08:00">
+                2018-11-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-笔记有哪些种类？"><a href="#1-笔记有哪些种类？" class="headerlink" title="1. 笔记有哪些种类？"></a>1. 笔记有哪些种类？</h1><ul>
+<li><code>所有人可读</code>：所有人都可以看的，这种类型的笔记适合作为博客</li>
+<li><code>部分可读</code>：这种不适合作为博客，需要一些约束条件，被授权的人才有资格去读</li>
+<li><code>仅自己可读</code>：这种类型的往往都是个人隐私，不需要和别人分享</li>
+</ul>
+<h1 id="2-为什么要记笔记？"><a href="#2-为什么要记笔记？" class="headerlink" title="2. 为什么要记笔记？"></a>2. 为什么要记笔记？</h1><p><code>你需要的东西网上都有，搜索引擎都能找到，那么你为什么还要记笔记？</code></p>
+<ul>
+<li><code>节约效率与缓存</code>：搜索引擎并不一定能够找到你需要的数据，一旦找到，最好可以缓存起来，作为笔记，下次查找的效率往往会提高非常多；另外，这次可以找到的内容，下次同样的位置，也可能文档已经被删除。</li>
+<li><code>知识经验积累</code>: 原创的内容在互联网上是搜不到的，所以需要记录，积累知识，内化吸收</li>
+<li><code>生活感情记录</code>: 作为一种情绪的记录</li>
+</ul>
+<h1 id="3-markdown-笔记，-编辑器之间有什么关系"><a href="#3-markdown-笔记，-编辑器之间有什么关系" class="headerlink" title="3. markdown, 笔记， 编辑器之间有什么关系"></a>3. markdown, 笔记， 编辑器之间有什么关系</h1><p>markdown是笔记的一种形式，编辑器来制作笔记。</p>
+<h1 id="4-对于编辑器的要求"><a href="#4-对于编辑器的要求" class="headerlink" title="4. 对于编辑器的要求"></a>4. 对于编辑器的要求</h1><ul>
+<li>可以编辑markdown</li>
+<li>可以导出pdf</li>
+<li>可以云端备份</li>
+</ul>
 
           
         
@@ -394,7 +2004,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -402,6 +2012,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
