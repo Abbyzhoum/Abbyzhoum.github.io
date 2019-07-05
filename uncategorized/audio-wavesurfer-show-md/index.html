@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="js,">
+  <meta name="keywords" content="git,">
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="备注： \D是\d的非数字字符，等价于等价于[^0-9]，说明了大写字符是小写字符的反义非 1.字符集一位数字: [0-9] 一位大写字母: [A-Z] 一位小写字母: [a-z] 一位字母: [A-Za-z] 一位数字或字母: [A-Za-z0-9] 一位汉字: [\u4e00-\u9fa5] 2.预定义字符集\d  一位数字 [0-9] \w  一位字母，数字或下划线[A-Za-z0-9_]">
-<meta name="keywords" content="js">
+<meta name="description" content="今天来说一下我用wavesurfer遇到的那些坑因为要考虑到兼容IE11，还有多录音列表的展示，所以还是用原来的audio模块，在原有基础上再添加一个div做录音波形展示(IE11以上的显示录音波形，IE11以下只显示原生的audio) 效果展示  1234567891011121314151617181920212223代码块：    wavesurfer = WaveSurfer.create">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="正则表达式小结">
-<meta property="og:url" content="https://abbyz.js.org/uncategorized/regular-expression-js/index.html">
+<meta property="og:title" content="wavesurfer模块包差异，audio判断是否在播放中">
+<meta property="og:url" content="https://abbyz.js.org/uncategorized/audio-wavesurfer-show-md/index.html">
 <meta property="og:site_name" content="一身仙女味">
-<meta property="og:description" content="备注： \D是\d的非数字字符，等价于等价于[^0-9]，说明了大写字符是小写字符的反义非 1.字符集一位数字: [0-9] 一位大写字母: [A-Z] 一位小写字母: [a-z] 一位字母: [A-Za-z] 一位数字或字母: [A-Za-z0-9] 一位汉字: [\u4e00-\u9fa5] 2.预定义字符集\d  一位数字 [0-9] \w  一位字母，数字或下划线[A-Za-z0-9_]">
+<meta property="og:description" content="今天来说一下我用wavesurfer遇到的那些坑因为要考虑到兼容IE11，还有多录音列表的展示，所以还是用原来的audio模块，在原有基础上再添加一个div做录音波形展示(IE11以上的显示录音波形，IE11以下只显示原生的audio) 效果展示  1234567891011121314151617181920212223代码块：    wavesurfer = WaveSurfer.create">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-08T01:44:16.487Z">
+<meta property="og:image" content="https://abbyz.js.org/images/audio-wavesurfer.jpeg">
+<meta property="og:updated_time" content="2019-07-05T04:08:36.249Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="正则表达式小结">
-<meta name="twitter:description" content="备注： \D是\d的非数字字符，等价于等价于[^0-9]，说明了大写字符是小写字符的反义非 1.字符集一位数字: [0-9] 一位大写字母: [A-Z] 一位小写字母: [a-z] 一位字母: [A-Za-z] 一位数字或字母: [A-Za-z0-9] 一位汉字: [\u4e00-\u9fa5] 2.预定义字符集\d  一位数字 [0-9] \w  一位字母，数字或下划线[A-Za-z0-9_]">
+<meta name="twitter:title" content="wavesurfer模块包差异，audio判断是否在播放中">
+<meta name="twitter:description" content="今天来说一下我用wavesurfer遇到的那些坑因为要考虑到兼容IE11，还有多录音列表的展示，所以还是用原来的audio模块，在原有基础上再添加一个div做录音波形展示(IE11以上的显示录音波形，IE11以下只显示原生的audio) 效果展示  1234567891011121314151617181920212223代码块：    wavesurfer = WaveSurfer.create">
+<meta name="twitter:image" content="https://abbyz.js.org/images/audio-wavesurfer.jpeg">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://abbyz.js.org/uncategorized/regular-expression-js/">
+  <link rel="canonical" href="https://abbyz.js.org/uncategorized/audio-wavesurfer-show-md/">
 
 
 
 
 
-  <title>正则表达式小结 | 一身仙女味</title>
+  <title>wavesurfer模块包差异，audio判断是否在播放中 | 一身仙女味</title>
   
 
 
@@ -253,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://abbyz.js.org/uncategorized/regular-expression-js/">
+    <link itemprop="mainEntityOfPage" href="https://abbyz.js.org/uncategorized/audio-wavesurfer-show-md/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小周周">
@@ -270,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">正则表达式小结</h1>
+          <h1 class="post-title" itemprop="name headline">wavesurfer模块包差异，audio判断是否在播放中</h1>
         
 
         <div class="post-meta">
@@ -282,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-17T15:03:24+08:00">
-                2018-12-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-04T15:57:14+08:00">
+                2019-07-04
               </time>
             
 
@@ -320,110 +322,16 @@
       
 
       
-        <p><code>备注：
-\D是\d的非数字字符，等价于等价于[^0-9]，说明了大写字符是小写字符的反义非</code></p>
-<h3 id="1-字符集"><a href="#1-字符集" class="headerlink" title="1.字符集"></a>1.字符集</h3><pre><code>一位数字: [0-9]
-一位大写字母: [A-Z]
-一位小写字母: [a-z]
-一位字母: [A-Za-z]
-一位数字或字母: [A-Za-z0-9]
-一位汉字: [\u4e00-\u9fa5]
-</code></pre><h3 id="2-预定义字符集"><a href="#2-预定义字符集" class="headerlink" title="2.预定义字符集"></a>2.预定义字符集</h3><pre><code>\d  一位数字 [0-9]
-\w  一位字母，数字或下划线[A-Za-z0-9_]
-\s   一位空字符: 空格，Tab…
- .    通配符 可代表一切字符
-</code></pre><h3 id="3-正则表达式标志"><a href="#3-正则表达式标志" class="headerlink" title="3.正则表达式标志"></a>3.正则表达式标志</h3><pre><code>g    全局搜索。
-i    不区分大小写搜索。
-m    多行搜索。
-y    执行“粘性”搜索,匹配从目标字符串的当前位置开始，可以使用y标志。
-</code></pre><h3 id="4-使用正则表达式的方法"><a href="#4-使用正则表达式的方法" class="headerlink" title="4.使用正则表达式的方法"></a>4.使用正则表达式的方法</h3><pre><code>exec    一个在字符串中执行查找匹配的RegExp方法，它返回一个数组（未匹配到则返回null）。
-test    一个在字符串中测试是否匹配的RegExp方法，它返回true或false。
-match    一个在字符串中执行查找匹配的String方法，它返回一个数组或者在未匹配到时返回null。
-search    一个在字符串中测试匹配的String方法，它返回匹配到的位置索引，或者在失败时返回-1。
-replace    一个在字符串中执行查找匹配的String方法，并且使用替换字符串替换掉匹配到的子字符串。
-split    一个使用正则表达式或者一个固定字符串分隔一个字符串，并将分隔后的子字符串存储到数组中的String方法。
-</code></pre><p>5.正则表达式匹配规则<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">具体请参考官网:https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions#special-questionmark</span><br></pre></td></tr></table></figure></p>
-<table>
-<thead>
-<tr>
-<th>字符</th>
-<th>含义</th>
-<th>举例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>\</code></td>
-<td>`转义字符,用于匹配一些保留的字符 [ ] ( ) { } . * + ? ^ $ \</td>
-<td>/a*/ 代表会匹配 0 个或者多个 a`</td>
-</tr>
-<tr>
-<td>^</td>
-<td>从开始行开始匹配.</td>
-<td>/^A/ 并不会匹配 “an A” 中的 ‘A’，但是会匹配 “An E” 中的 ‘A’</td>
-</tr>
-<tr>
-<td>$</td>
-<td>从末端开始匹配</td>
-<td>/t$/ 并不会匹配 “eater” 中的 ‘t’，但是会匹配 “eat” 中的 ‘t’</td>
-</tr>
-<tr>
-<td>*</td>
-<td>匹配&gt;=0个重复的在*号之前的字符</td>
-<td>/bo*/会匹配 “A ghost boooooed” 中的 ‘booooo’ 和 “A bird warbled” 中的 ‘b’，但是在 “A goat grunted” 中将不会匹配任何东西</td>
-</tr>
-<tr>
-<td>+</td>
-<td>匹配&gt;=1个重复的+号前的字符</td>
-<td>/a+/匹配了在 “candy” 中的 ‘a’，和在 “caaaaaaandy” 中所有的 ‘a’</td>
-</tr>
-<tr>
-<td>?</td>
-<td>匹配前面一个表达式0次或者1次。等价于 {0,1}</td>
-<td>/e?le?/ 匹配 “angel” 中的 ‘el’，和 “angle” 中的 ‘le’ 以及”oslo’ 中的’l’</td>
-</tr>
-<tr>
-<td>.</td>
-<td>匹配任意单个字符除了换行符</td>
-<td>/.n/将会匹配 “nay, an apple is on the tree” 中的 ‘an’ 和 ‘on’，但是不会匹配 ‘nay’</td>
-</tr>
-<tr>
-<td>{n,m}</td>
-<td>n 和 m 都是整数。匹配前面的字符至少n次，最多m次。如果 n 或者 m 的值是0， 这个值被忽略</td>
-<td>/a{1, 3}/ 并不匹配“cndy”中的任意字符，匹配“candy”中的a</td>
-</tr>
-<tr>
-<td>\d</td>
-<td>匹配一个数字。等价于[0-9]。</td>
-<td>/\d/ 或者 /[0-9]/ 匹配”B2 is the suite number.”中的’2’</td>
-</tr>
-<tr>
-<td>\D</td>
-<td>匹配一个非数字字符。等价于[^0-9]。</td>
-<td>/\D/ 或者 /[^0-9]/ 匹配”B2 is the suite number.”中的’B’ </td>
-</tr>
-<tr>
-<td>\s</td>
-<td>匹配一个空白字符，包括空格、制表符、换页符和换行符。</td>
-<td>/\s\w*/ 匹配”foo bar.”中的’ bar’</td>
-</tr>
-<tr>
-<td>\w</td>
-<td>匹配一个单字字符（字母、数字或者下划线）。等价于[A-Za-z0-9_]。</td>
-<td>/\w/ 匹配 “apple,” 中的 ‘a’，”$5.28,”中的 ‘5’ 和 “3D.” 中的 ‘3’</td>
-</tr>
-<tr>
-<td>\n</td>
-<td>它返回最后的第n个子捕获匹配的子字符串(捕获的数目以左括号计数)</td>
-<td>/apple(,)\sorange\1/ 匹配”apple, orange, cherry, peach.”中的’apple, orange,’</td>
-</tr>
-<tr>
-<td>[xyz]</td>
-<td>字符集, 匹配与 xyz 完全相等的字符串</td>
-<td>[abcd] 和[a-d]是一样的，”brisket”中得‘b’,也都匹配“city”中的‘c’</td>
-</tr>
-</tbody>
-</table>
+        <h3 id="今天来说一下我用wavesurfer遇到的那些坑"><a href="#今天来说一下我用wavesurfer遇到的那些坑" class="headerlink" title="今天来说一下我用wavesurfer遇到的那些坑"></a>今天来说一下我用wavesurfer遇到的那些坑</h3><p>因为要考虑到兼容IE11，还有多录音列表的展示，所以还是用原来的audio模块，在原有基础上再添加一个div做录音波形展示(IE11以上的显示录音波形，IE11以下只显示原生的audio)</p>
+<p>效果展示</p>
+<p><img src="/images/audio-wavesurfer.jpeg" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">代码块：</span><br><span class="line">    wavesurfer = WaveSurfer.create(&#123;</span><br><span class="line">        container: wave[0],</span><br><span class="line">        waveColor: &apos;#428bca&apos;,</span><br><span class="line">        progressColor: &apos;#31708f&apos;,</span><br><span class="line">        scrollParent: true,</span><br><span class="line">        normalize: true,</span><br><span class="line">        backend: &apos;MediaElement&apos;,</span><br><span class="line">        plugins: [</span><br><span class="line">            WaveSurfer.timeline.create(&#123;</span><br><span class="line">                container: time[0],</span><br><span class="line">                formatTimeCallback: BANG_audio.formatTimeCallback,</span><br><span class="line">                timeInterval: BANG_audio.timeInterval,</span><br><span class="line">                primaryLabelInterval: BANG_audio.primaryLabelInterval,</span><br><span class="line">                secondaryLabelInterval: BANG_audio.secondaryLabelInterval,</span><br><span class="line">	            primaryColor: &apos;blue&apos;,</span><br><span class="line">	            secondaryColor: &apos;red&apos;,</span><br><span class="line">	            primaryFontColor: &apos;blue&apos;,</span><br><span class="line">	            secondaryFontColor: &apos;red&apos;</span><br><span class="line">            &#125;),</span><br><span class="line">            WaveSurfer.regions.create(&#123;  &#125;)</span><br><span class="line">       ]</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<p>遇到的问题：<br>  ① 模块包，注意：在npm、jsDelivr里面下载wavesurfer的包，所提供的方法跟官方文档真的是好多都不一样</p>
+<pre><code>比如说：官方文档上说的创建是create，但是npm、jsDelivr里面说的是init，而且不支持放在 plugins[] 中
+解决方法： 所需下载的包在unpkg上面，比如： https://unpkg.com/wavesurfer.js
+</code></pre><p>  ② 判断audio哪个是否在播放状态中<br>    解决方法：  audio.duration &gt; 0 &amp;&amp; !audio.paused</p>
+<p>  ③ 报错信息： <code>Failed to set the &#39;currentTime&#39; property on &#39;HTMLMediaElement&#39;: The provided double value is non-finite.</code><br>    解决方法： 这个是似乎jQuery与Web音频API不兼容，所以还是用原生的document.getElementById(‘’)</p>
+<p><a href="https://wavesurfer-js.org/" target="_blank" rel="noopener">官方文档参考</a></p>
 
       
     </div>
@@ -470,7 +378,7 @@ split    一个使用正则表达式或者一个固定字符串分隔一个字�
       
         <div class="post-tags">
           
-            <a href="/tags/js/" rel="tag"># js</a>
+            <a href="/tags/git/" rel="tag"># git</a>
           
         </div>
       
@@ -483,8 +391,8 @@ split    一个使用正则表达式或者一个固定字符串分隔一个字�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/uncategorized/js-event-type-all/" rel="next" title="js事件类型一览表">
-                <i class="fa fa-chevron-left"></i> js事件类型一览表
+              <a href="/uncategorized/git-commom-cmds/" rel="next" title="gitbash生存指南 之 git常用命令与oh-my-zsh常用缩写">
+                <i class="fa fa-chevron-left"></i> gitbash生存指南 之 git常用命令与oh-my-zsh常用缩写
               </a>
             
           </div>
@@ -493,8 +401,8 @@ split    一个使用正则表达式或者一个固定字符串分隔一个字�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/uncategorized/say-Array-methods-about-js-md/" rel="prev" title="Array的方法总结">
-                Array的方法总结 <i class="fa fa-chevron-right"></i>
+              <a href="/uncategorized/regex-password-strength-md/" rel="prev" title="密码强度：前后字符不相同，不出现连续的字母、数字（有点特殊的需求）">
+                密码强度：前后字符不相同，不出现连续的字母、数字（有点特殊的需求） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -634,7 +542,7 @@ split    一个使用正则表达式或者一个固定字符串分隔一个字�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-字符集"><span class="nav-number">1.</span> <span class="nav-text">1.字符集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-预定义字符集"><span class="nav-number">2.</span> <span class="nav-text">2.预定义字符集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-正则表达式标志"><span class="nav-number">3.</span> <span class="nav-text">3.正则表达式标志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-使用正则表达式的方法"><span class="nav-number">4.</span> <span class="nav-text">4.使用正则表达式的方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#今天来说一下我用wavesurfer遇到的那些坑"><span class="nav-number">1.</span> <span class="nav-text">今天来说一下我用wavesurfer遇到的那些坑</span></a></li></ol></div>
             
 
           </div>

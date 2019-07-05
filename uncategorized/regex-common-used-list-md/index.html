@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="js,">
+  <meta name="keywords" content="regex,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="备注： \D是\d的非数字字符，等价于等价于[^0-9]，说明了大写字符是小写字符的反义非 1.字符集一位数字: [0-9] 一位大写字母: [A-Z] 一位小写字母: [a-z] 一位字母: [A-Za-z] 一位数字或字母: [A-Za-z0-9] 一位汉字: [\u4e00-\u9fa5] 2.预定义字符集\d  一位数字 [0-9] \w  一位字母，数字或下划线[A-Za-z0-9_]">
-<meta name="keywords" content="js">
+<meta name="description" content="###1. 对数字相关的校验 12345678910111213141516171819 1 数字：^[0-9]*$ 2 n位的数字：^\d&amp;#123;n&amp;#125;$ 3 至少n位的数字：^\d&amp;#123;n,&amp;#125;$ 4 m-n位的数字：^\d&amp;#123;m,n&amp;#125;$ 5 零和非零开头的数字：^(0|[1-9][0-9]*)$ 6 非零开头的最多带两位小数的数字：^([1-9][">
+<meta name="keywords" content="regex">
 <meta property="og:type" content="article">
-<meta property="og:title" content="正则表达式小结">
-<meta property="og:url" content="https://abbyz.js.org/uncategorized/regular-expression-js/index.html">
+<meta property="og:title" content="常用的正则表达式大全，已整理">
+<meta property="og:url" content="https://abbyz.js.org/uncategorized/regex-common-used-list-md/index.html">
 <meta property="og:site_name" content="一身仙女味">
-<meta property="og:description" content="备注： \D是\d的非数字字符，等价于等价于[^0-9]，说明了大写字符是小写字符的反义非 1.字符集一位数字: [0-9] 一位大写字母: [A-Z] 一位小写字母: [a-z] 一位字母: [A-Za-z] 一位数字或字母: [A-Za-z0-9] 一位汉字: [\u4e00-\u9fa5] 2.预定义字符集\d  一位数字 [0-9] \w  一位字母，数字或下划线[A-Za-z0-9_]">
+<meta property="og:description" content="###1. 对数字相关的校验 12345678910111213141516171819 1 数字：^[0-9]*$ 2 n位的数字：^\d&amp;#123;n&amp;#125;$ 3 至少n位的数字：^\d&amp;#123;n,&amp;#125;$ 4 m-n位的数字：^\d&amp;#123;m,n&amp;#125;$ 5 零和非零开头的数字：^(0|[1-9][0-9]*)$ 6 非零开头的最多带两位小数的数字：^([1-9][">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-08T01:44:16.487Z">
+<meta property="og:updated_time" content="2019-07-05T05:56:12.611Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="正则表达式小结">
-<meta name="twitter:description" content="备注： \D是\d的非数字字符，等价于等价于[^0-9]，说明了大写字符是小写字符的反义非 1.字符集一位数字: [0-9] 一位大写字母: [A-Z] 一位小写字母: [a-z] 一位字母: [A-Za-z] 一位数字或字母: [A-Za-z0-9] 一位汉字: [\u4e00-\u9fa5] 2.预定义字符集\d  一位数字 [0-9] \w  一位字母，数字或下划线[A-Za-z0-9_]">
+<meta name="twitter:title" content="常用的正则表达式大全，已整理">
+<meta name="twitter:description" content="###1. 对数字相关的校验 12345678910111213141516171819 1 数字：^[0-9]*$ 2 n位的数字：^\d&amp;#123;n&amp;#125;$ 3 至少n位的数字：^\d&amp;#123;n,&amp;#125;$ 4 m-n位的数字：^\d&amp;#123;m,n&amp;#125;$ 5 零和非零开头的数字：^(0|[1-9][0-9]*)$ 6 非零开头的最多带两位小数的数字：^([1-9][">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://abbyz.js.org/uncategorized/regular-expression-js/">
+  <link rel="canonical" href="https://abbyz.js.org/uncategorized/regex-common-used-list-md/">
 
 
 
 
 
-  <title>正则表达式小结 | 一身仙女味</title>
+  <title>常用的正则表达式大全，已整理 | 一身仙女味</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://abbyz.js.org/uncategorized/regular-expression-js/">
+    <link itemprop="mainEntityOfPage" href="https://abbyz.js.org/uncategorized/regex-common-used-list-md/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小周周">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">正则表达式小结</h1>
+          <h1 class="post-title" itemprop="name headline">常用的正则表达式大全，已整理</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-17T15:03:24+08:00">
-                2018-12-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-05T13:44:44+08:00">
+                2019-07-05
               </time>
             
 
@@ -320,111 +320,12 @@
       
 
       
-        <p><code>备注：
-\D是\d的非数字字符，等价于等价于[^0-9]，说明了大写字符是小写字符的反义非</code></p>
-<h3 id="1-字符集"><a href="#1-字符集" class="headerlink" title="1.字符集"></a>1.字符集</h3><pre><code>一位数字: [0-9]
-一位大写字母: [A-Z]
-一位小写字母: [a-z]
-一位字母: [A-Za-z]
-一位数字或字母: [A-Za-z0-9]
-一位汉字: [\u4e00-\u9fa5]
-</code></pre><h3 id="2-预定义字符集"><a href="#2-预定义字符集" class="headerlink" title="2.预定义字符集"></a>2.预定义字符集</h3><pre><code>\d  一位数字 [0-9]
-\w  一位字母，数字或下划线[A-Za-z0-9_]
-\s   一位空字符: 空格，Tab…
- .    通配符 可代表一切字符
-</code></pre><h3 id="3-正则表达式标志"><a href="#3-正则表达式标志" class="headerlink" title="3.正则表达式标志"></a>3.正则表达式标志</h3><pre><code>g    全局搜索。
-i    不区分大小写搜索。
-m    多行搜索。
-y    执行“粘性”搜索,匹配从目标字符串的当前位置开始，可以使用y标志。
-</code></pre><h3 id="4-使用正则表达式的方法"><a href="#4-使用正则表达式的方法" class="headerlink" title="4.使用正则表达式的方法"></a>4.使用正则表达式的方法</h3><pre><code>exec    一个在字符串中执行查找匹配的RegExp方法，它返回一个数组（未匹配到则返回null）。
-test    一个在字符串中测试是否匹配的RegExp方法，它返回true或false。
-match    一个在字符串中执行查找匹配的String方法，它返回一个数组或者在未匹配到时返回null。
-search    一个在字符串中测试匹配的String方法，它返回匹配到的位置索引，或者在失败时返回-1。
-replace    一个在字符串中执行查找匹配的String方法，并且使用替换字符串替换掉匹配到的子字符串。
-split    一个使用正则表达式或者一个固定字符串分隔一个字符串，并将分隔后的子字符串存储到数组中的String方法。
-</code></pre><p>5.正则表达式匹配规则<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">具体请参考官网:https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions#special-questionmark</span><br></pre></td></tr></table></figure></p>
-<table>
-<thead>
-<tr>
-<th>字符</th>
-<th>含义</th>
-<th>举例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>\</code></td>
-<td>`转义字符,用于匹配一些保留的字符 [ ] ( ) { } . * + ? ^ $ \</td>
-<td>/a*/ 代表会匹配 0 个或者多个 a`</td>
-</tr>
-<tr>
-<td>^</td>
-<td>从开始行开始匹配.</td>
-<td>/^A/ 并不会匹配 “an A” 中的 ‘A’，但是会匹配 “An E” 中的 ‘A’</td>
-</tr>
-<tr>
-<td>$</td>
-<td>从末端开始匹配</td>
-<td>/t$/ 并不会匹配 “eater” 中的 ‘t’，但是会匹配 “eat” 中的 ‘t’</td>
-</tr>
-<tr>
-<td>*</td>
-<td>匹配&gt;=0个重复的在*号之前的字符</td>
-<td>/bo*/会匹配 “A ghost boooooed” 中的 ‘booooo’ 和 “A bird warbled” 中的 ‘b’，但是在 “A goat grunted” 中将不会匹配任何东西</td>
-</tr>
-<tr>
-<td>+</td>
-<td>匹配&gt;=1个重复的+号前的字符</td>
-<td>/a+/匹配了在 “candy” 中的 ‘a’，和在 “caaaaaaandy” 中所有的 ‘a’</td>
-</tr>
-<tr>
-<td>?</td>
-<td>匹配前面一个表达式0次或者1次。等价于 {0,1}</td>
-<td>/e?le?/ 匹配 “angel” 中的 ‘el’，和 “angle” 中的 ‘le’ 以及”oslo’ 中的’l’</td>
-</tr>
-<tr>
-<td>.</td>
-<td>匹配任意单个字符除了换行符</td>
-<td>/.n/将会匹配 “nay, an apple is on the tree” 中的 ‘an’ 和 ‘on’，但是不会匹配 ‘nay’</td>
-</tr>
-<tr>
-<td>{n,m}</td>
-<td>n 和 m 都是整数。匹配前面的字符至少n次，最多m次。如果 n 或者 m 的值是0， 这个值被忽略</td>
-<td>/a{1, 3}/ 并不匹配“cndy”中的任意字符，匹配“candy”中的a</td>
-</tr>
-<tr>
-<td>\d</td>
-<td>匹配一个数字。等价于[0-9]。</td>
-<td>/\d/ 或者 /[0-9]/ 匹配”B2 is the suite number.”中的’2’</td>
-</tr>
-<tr>
-<td>\D</td>
-<td>匹配一个非数字字符。等价于[^0-9]。</td>
-<td>/\D/ 或者 /[^0-9]/ 匹配”B2 is the suite number.”中的’B’ </td>
-</tr>
-<tr>
-<td>\s</td>
-<td>匹配一个空白字符，包括空格、制表符、换页符和换行符。</td>
-<td>/\s\w*/ 匹配”foo bar.”中的’ bar’</td>
-</tr>
-<tr>
-<td>\w</td>
-<td>匹配一个单字字符（字母、数字或者下划线）。等价于[A-Za-z0-9_]。</td>
-<td>/\w/ 匹配 “apple,” 中的 ‘a’，”$5.28,”中的 ‘5’ 和 “3D.” 中的 ‘3’</td>
-</tr>
-<tr>
-<td>\n</td>
-<td>它返回最后的第n个子捕获匹配的子字符串(捕获的数目以左括号计数)</td>
-<td>/apple(,)\sorange\1/ 匹配”apple, orange, cherry, peach.”中的’apple, orange,’</td>
-</tr>
-<tr>
-<td>[xyz]</td>
-<td>字符集, 匹配与 xyz 完全相等的字符串</td>
-<td>[abcd] 和[a-d]是一样的，”brisket”中得‘b’,也都匹配“city”中的‘c’</td>
-</tr>
-</tbody>
-</table>
-
+        <p>###1. 对数字相关的校验</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> 1 数字：^[0-9]*$</span><br><span class="line"> 2 n位的数字：^\d&#123;n&#125;$</span><br><span class="line"> 3 至少n位的数字：^\d&#123;n,&#125;$</span><br><span class="line"> 4 m-n位的数字：^\d&#123;m,n&#125;$</span><br><span class="line"> 5 零和非零开头的数字：^(0|[1-9][0-9]*)$</span><br><span class="line"> 6 非零开头的最多带两位小数的数字：^([1-9][0-9]*)+(.[0-9]&#123;1,2&#125;)?$</span><br><span class="line"> 7 带1-2位小数的正数或负数：^(\-)?\d+(\.\d&#123;1,2&#125;)?$</span><br><span class="line"> 8 正数、负数、和小数：^(\-|\+)?\d+(\.\d+)?$</span><br><span class="line"> 9 有两位小数的正实数：^[0-9]+(.[0-9]&#123;2&#125;)?$</span><br><span class="line">10 有1~3位小数的正实数：^[0-9]+(.[0-9]&#123;1,3&#125;)?$</span><br><span class="line">11 非零的正整数：^[1-9]\d*$ 或 ^([1-9][0-9]*)&#123;1,3&#125;$ 或 ^\+?[1-9][0-9]*$</span><br><span class="line">12 非零的负整数：^\-[1-9][]0-9&quot;*$ 或 ^-[1-9]\d*$</span><br><span class="line">13 非负整数：^\d+$ 或 ^[1-9]\d*|0$</span><br><span class="line">14 非正整数：^-[1-9]\d*|0$ 或 ^((-\d+)|(0+))$</span><br><span class="line">15 非负浮点数：^\d+(\.\d+)?$ 或 ^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$</span><br><span class="line">16 非正浮点数：^((-\d+(\.\d+)?)|(0+(\.0+)?))$ 或 ^(-([1-9]\d*\.\d*|0\.\d*[1-9]\d*))|0?\.0+|0$</span><br><span class="line">17 正浮点数：^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$ 或 ^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$</span><br><span class="line">18 负浮点数：^-([1-9]\d*\.\d*|0\.\d*[1-9]\d*)$ 或 ^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$</span><br><span class="line">19 浮点数：^(-?\d+)(\.\d+)?$ 或 ^-?([1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0)$</span><br></pre></td></tr></table></figure>
+<p>###2. 对字符相关的校验</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1 汉字：^[\u4e00-\u9fa5]&#123;0,&#125;$</span><br><span class="line">2 英文和数字：^[A-Za-z0-9]+$ 或 ^[A-Za-z0-9]&#123;4,40&#125;$</span><br><span class="line">3 由26个英文字母组成的字符串：^[A-Za-z]+$</span><br><span class="line">4 由26个大写英文字母组成的字符串：^[A-Z]+$</span><br><span class="line">5 由26个小写英文字母组成的字符串：^[a-z]+$</span><br><span class="line">6 由数字和26个英文字母组成的字符串：^[A-Za-z0-9]+$</span><br><span class="line">7 由数字、26个英文字母或者下划线组成的字符串：^\w+$ 或 ^\w&#123;3,20&#125;$</span><br><span class="line">8 中文、英文、数字包括下划线：^[\u4E00-\u9FA5A-Za-z0-9_]+$</span><br><span class="line">9 中文、英文、数字但不包括下划线等符号：^[\u4E00-\u9FA5A-Za-z0-9]+$ 或 ^[\u4E00-\u9FA5A-Za-z0-9]&#123;2,20&#125;$</span><br></pre></td></tr></table></figure>
+<p>###3. 常用的集合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1 Email地址：^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$</span><br><span class="line">2 域名：[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;(/.[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;)+/.?</span><br><span class="line">3 InternetURL：[a-zA-z]+://[^\s]* 或 ^http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$</span><br><span class="line">4 手机号码：^(13[0-9]|14[0-9]|15[0-9]|16[0-9]|17[0-9]|18[0-9]|19[0-9])\d&#123;8&#125;$ </span><br><span class="line">5 18位身份证号码(数字、字母x结尾)：^((\d&#123;18&#125;)|([0-9x]&#123;18&#125;)|([0-9X]&#123;18&#125;))$</span><br><span class="line">6 密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：^[a-zA-Z]\w&#123;5,17&#125;$</span><br><span class="line">7 强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间)：^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).&#123;8,10&#125;$  </span><br><span class="line">8 日期格式：^\d&#123;4&#125;-\d&#123;1,2&#125;-\d&#123;1,2&#125;</span><br><span class="line">9 一年的12个月(01～09和1～12)：^(0?[1-9]|1[0-2])$</span><br><span class="line">10 一个月的31天(01～09和1～31)：^((0?[1-9])|((1|2)[0-9])|30|31)$ </span><br><span class="line">11 腾讯QQ号：[1-9][0-9]&#123;4,&#125;    (腾讯QQ号从10000开始)</span><br><span class="line">12 中国邮政编码：[1-9]\d&#123;5&#125;(?!\d)    (中国邮政编码为6位数字)</span><br><span class="line">13 IP地址：((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.)&#123;3&#125;(?:25[0-5]|2[0-4]\\d|[01] ?\\d?\\d))</span><br><span class="line">14 中文字符的正则表达式：[\u4e00-\u9fa5]</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -470,7 +371,7 @@ split    一个使用正则表达式或者一个固定字符串分隔一个字�
       
         <div class="post-tags">
           
-            <a href="/tags/js/" rel="tag"># js</a>
+            <a href="/tags/regex/" rel="tag"># regex</a>
           
         </div>
       
@@ -483,8 +384,8 @@ split    一个使用正则表达式或者一个固定字符串分隔一个字�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/uncategorized/js-event-type-all/" rel="next" title="js事件类型一览表">
-                <i class="fa fa-chevron-left"></i> js事件类型一览表
+              <a href="/uncategorized/regex-password-strength-md/" rel="next" title="密码强度：前后字符不相同，不出现连续的字母、数字（有点特殊的需求）">
+                <i class="fa fa-chevron-left"></i> 密码强度：前后字符不相同，不出现连续的字母、数字（有点特殊的需求）
               </a>
             
           </div>
@@ -493,8 +394,8 @@ split    一个使用正则表达式或者一个固定字符串分隔一个字�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/uncategorized/say-Array-methods-about-js-md/" rel="prev" title="Array的方法总结">
-                Array的方法总结 <i class="fa fa-chevron-right"></i>
+              <a href="/uncategorized/vscode-set-background-detail-md/" rel="prev" title="设置vscode背景图">
+                设置vscode背景图 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -547,17 +448,8 @@ split    一个使用正则表达式或者一个固定字符串分隔一个字�
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -624,22 +516,6 @@ split    一个使用正则表达式或者一个固定字符串分隔一个字�
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-字符集"><span class="nav-number">1.</span> <span class="nav-text">1.字符集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-预定义字符集"><span class="nav-number">2.</span> <span class="nav-text">2.预定义字符集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-正则表达式标志"><span class="nav-number">3.</span> <span class="nav-text">3.正则表达式标志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-使用正则表达式的方法"><span class="nav-number">4.</span> <span class="nav-text">4.使用正则表达式的方法</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
