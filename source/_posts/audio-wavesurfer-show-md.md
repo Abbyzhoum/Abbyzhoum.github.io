@@ -11,7 +11,7 @@ tags:
 
 效果展示
 
-![](/images/audio-wavesurfer.jpeg)
+![](/static/images/audio-wavesurfer.jpeg)
 
 
 ```

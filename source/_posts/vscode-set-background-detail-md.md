@@ -7,10 +7,10 @@ tags:
 ---
 
 #### 1. 每次看vscode的界面时，都是自己码的代码，太无趣了，所以增加了一个背景图，嗯，看着还不错
-看我的背景：![](/images/vscode-my-background.png)
+看我的背景：![](/static/images/vscode-my-background.png)
 
 步骤放在这里啦：
-![](/images/vscode-set-background.png)
+![](/static/images/vscode-set-background.png)
 
 
 ```
