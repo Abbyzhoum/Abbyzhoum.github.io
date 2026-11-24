@@ -30,16 +30,20 @@ appearance:
           - '#352048'
 leftbar:
   brand:
-    name: 一身仙女味
+    name: 小熊🐻
     tagline: 技术、探索与生活的记录
     image:
       src: /images/avatar.gif
       variant: avatar
   menu:
-    - id: post
-      title: 文章
+    - id: wiki
+      title: 文档
       icon: default:documents
       url: /
+    - id: post
+      title: 文章
+      icon: default:write
+      url: /posts/
     - id: categories
       title: 分类
       icon: default:category

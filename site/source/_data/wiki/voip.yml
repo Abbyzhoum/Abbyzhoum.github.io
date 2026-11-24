@@ -1,0 +1,40 @@
+name: VoIP 通信技术
+headline: 语音技术与实时通信实践
+tagline: OpenSIPS · SIP 协议 · 故障排查
+description: 记录 VoIP 语音通信领域的技术实践，覆盖 SIP 协议、OpenSIPS/SBC 软交换排查与真实案例复盘。
+tags:
+  - VoIP
+  - OpenSIPS
+  - SIP
+audience: 语音通信与网络工程师
+route:
+  path: /
+navigation:
+  tree:
+    OpenSIPS:
+      - index
+      - opensips/402-no-trunk-group
+hero:
+  enabled: true
+  background:
+    effect:
+      type: galaxy
+      options: {}
+  preview:
+    type: terminal
+    commands:
+      - label: sngrep
+        codes: |
+          # 抓取 SIP 信令，定位 402 响应
+          sngrep -d any port 5060
+      - label: opensips
+        codes: |
+          # 查看路由与 trunk 组配置
+          opensips-cli -x mi dr_gw_lists
+  actions:
+    - title: 浏览文章
+      url: /posts/
+      icon: default:send
+    - title: GitHub
+      url: https://github.com/Abbyzhoum
+      icon: default:github

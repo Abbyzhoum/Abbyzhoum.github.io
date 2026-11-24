@@ -1,4 +1,4 @@
-title: 一身仙女味
+title: 小熊🐻
 subtitle: 技术、探索与生活的记录
 author: 小周周
 language: zh-CN
@@ -16,7 +16,7 @@ archive_dir: archives
 category_dir: categories
 tag_dir: tags
 index_generator:
-  path: ''
+  path: 'posts'
   per_page: 10
   order_by: -date
 per_page: 10

@@ -9,6 +9,9 @@ tags:
   - OpenSIPS
   - SIP
   - 故障排查
+collection:
+  profile: wiki
+  id: voip
 ---
 
 ## 🚨 问题现象
