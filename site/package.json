@@ -1,0 +1,25 @@
+{
+  "name": "abbyzhoum-blog",
+  "private": true,
+  "scripts": {
+    "build": "node build.cjs",
+    "preview": "node_modules/node/bin/node node_modules/hexo/bin/hexo server"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "hexo": "8.1.2",
+    "hexo-generator-archive": "2.0.0",
+    "hexo-generator-category": "2.0.0",
+    "hexo-generator-index": "4.0.0",
+    "hexo-generator-tag": "2.0.0",
+    "hexo-renderer-marked": "7.0.1",
+    "hexo-server": "3.0.0",
+    "hexo-theme-stellar": "2.0.0",
+    "node": "22.23.5"
+  },
+  "hexo": {
+    "version": "8.1.2"
+  }
+}

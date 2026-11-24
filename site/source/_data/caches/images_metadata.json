@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "images": {
+    "https://abbyz.js.org/images/audio-wavesurfer.jpeg": {
+      "updatedAt": "2026-11-24T06:17:14.825Z",
+      "dimensions": {
+        "status": "ready",
+        "width": 4000,
+        "height": 1548
+      },
+      "color": {
+        "status": "ready",
+        "algorithm": "hsla-mean-v1",
+        "size": 64,
+        "hsla": [
+          339.1614,
+          3.0017,
+          82.4729,
+          1
+        ]
+      }
+    },
+    "https://abbyz.js.org/images/vi.png": {
+      "updatedAt": "2026-11-24T06:17:14.826Z",
+      "error": "Local image route not found: images/vi.png",
+      "retryAfter": 1795587434826
+    },
+    "https://abbyz.js.org/images/vi1.png": {
+      "updatedAt": "2026-11-24T06:17:14.826Z",
+      "error": "Local image route not found: images/vi1.png",
+      "retryAfter": 1795587434826
+    },
+    "https://abbyz.js.org/images/vscode-my-background.png": {
+      "updatedAt": "2026-11-24T06:17:14.854Z",
+      "dimensions": {
+        "status": "ready",
+        "width": 2286,
+        "height": 1536
+      },
+      "color": {
+        "status": "ready",
+        "algorithm": "hsla-mean-v1",
+        "size": 64,
+        "hsla": [
+          58.0896,
+          1.1291,
+          12.6838,
+          1
+        ]
+      }
+    },
+    "https://abbyz.js.org/images/vscode-set-background.png": {
+      "updatedAt": "2026-11-24T06:17:14.868Z",
+      "dimensions": {
+        "status": "ready",
+        "width": 3304,
+        "height": 962
+      },
+      "color": {
+        "status": "ready",
+        "algorithm": "hsla-mean-v1",
+        "size": 64,
+        "hsla": [
+          36.4489,
+          2.0221,
+          16.8415,
+          1
+        ]
+      }
+    },
+    "https://abbyz.js.org/voip/images/402-sbc.png": {
+      "updatedAt": "2026-11-24T06:17:14.804Z",
+      "dimensions": {
+        "status": "ready",
+        "width": 646,
+        "height": 468
+      },
+      "color": {
+        "status": "ready",
+        "algorithm": "hsla-mean-v1",
+        "size": 64,
+        "hsla": [
+          304.9716,
+          2.3318,
+          14.5814,
+          1
+        ]
+      }
+    },
+    "https://abbyz.js.org/voip/images/402-sngrep.png": {
+      "updatedAt": "2026-11-24T06:17:14.805Z",
+      "dimensions": {
+        "status": "ready",
+        "width": 750,
+        "height": 401
+      },
+      "color": {
+        "status": "ready",
+        "algorithm": "hsla-mean-v1",
+        "size": 64,
+        "hsla": [
+          115.0189,
+          0.2197,
+          21.7339,
+          1
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+appearance:
+  preset: card
+  color_scheme: auto
+  colors:
+    primary: '#7C3AED'
+    accent: '#8B5CF6'
+    link: '#6D28D9'
+  gradients:
+    primary_action: 'linear-gradient(120deg, #7C3AED, #A78BFA)'
+    search_bar: 'linear-gradient(120deg, #7C3AED, #C4B5FD)'
+  typography:
+    font_family:
+      body: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif
+      code: '"SFMono-Regular", Consolas, "Liberation Mono", monospace'
+    font_size:
+      root: 16px
+      code_block: 0.875rem
+  backgrounds:
+    leftbar:
+      gradient:
+        light:
+          - '#EDE9FE'
+          - '#F5F3FF'
+          - '#DDD6FE'
+          - '#E9D5FF'
+        dark:
+          - '#241735'
+          - '#302048'
+          - '#21162E'
+          - '#352048'
+leftbar:
+  brand:
+    name: 一身仙女味
+    tagline: 技术、探索与生活的记录
+    image:
+      src: /images/avatar.gif
+      variant: avatar
+  menu:
+    - id: post
+      title: 文章
+      icon: default:documents
+      url: /
+    - id: categories
+      title: 分类
+      icon: default:category
+      url: /categories/
+    - id: tags
+      title: 标签
+      icon: default:hashtag
+      url: /tags/
+    - id: archives
+      title: 归档
+      icon: default:calendar
+      url: /archives/
+    - id: github
+      title: GitHub
+      icon: default:link
+      url: https://github.com/Abbyzhoum
+profiles:
+  post:
+    rightbar:
+      widgets:
+        - toc
+footer:
+  content: >
+    © 2018–2026 小周周 · 使用 [Stellar](https://github.com/xaoxuu/hexo-theme-stellar)
+    构建
+search:
+  provider: local
+inject:
+  head_end: <link rel="stylesheet" href="/custom-purple.css">
+features:
+  color_scheme_switch:
+    enabled: true

@@ -1,0 +1,6 @@
+site/node_modules/
+site/public/
+site/db.json
+site/.cache/
+site/.stellar/
+.DS_Store
