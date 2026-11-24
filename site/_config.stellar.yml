@@ -36,10 +36,14 @@ leftbar:
       src: /images/avatar.gif
       variant: avatar
   menu:
-    - id: post
-      title: 文章
+    - id: wiki
+      title: 文档
       icon: default:documents
       url: /
+    - id: post
+      title: 文章
+      icon: default:write
+      url: /posts/
     - id: categories
       title: 分类
       icon: default:category
