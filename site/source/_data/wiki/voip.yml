@@ -34,7 +34,7 @@ hero:
   actions:
     - title: 浏览文章
       url: /posts/
-      icon: default:send
+      icon: default:arrow-right
     - title: GitHub
       url: https://github.com/Abbyzhoum
       icon: default:github

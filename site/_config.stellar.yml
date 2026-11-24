@@ -42,7 +42,7 @@ leftbar:
       url: /
     - id: post
       title: 文章
-      icon: default:write
+      icon: default:edit
       url: /posts/
     - id: categories
       title: 分类
@@ -65,6 +65,11 @@ profiles:
     rightbar:
       widgets:
         - toc
+# 文章列表卡片：显示标签、自动摘要长度
+article:
+  listing:
+    show_tags: true
+    excerpt_length: 100
 footer:
   content: >
     © 2018–2026 小周周 · 使用 [Stellar](https://github.com/xaoxuu/hexo-theme-stellar)
