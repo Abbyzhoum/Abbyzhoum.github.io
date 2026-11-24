@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="OpenSIPS 402 no trunk group 错误排查：路由组、中继组、UC 分机正则与 NOTIFY 请求。">
+<meta name="keywords" content="周梦,小周周,一身仙女味">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OpenSIPS 故障排查：402 No Trunk Group">
+<meta property="og:url" content="https://abbyz.js.org/voip/opensips/402-no-trunk-group/">
+<meta property="og:site_name" content="一身仙女味">
+<meta property="og:description" content="OpenSIPS 402 no trunk group 错误排查：路由组、中继组、UC 分机正则与 NOTIFY 请求。">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenSIPS 故障排查：402 No Trunk Group">
+<meta name="twitter:description" content="OpenSIPS 402 no trunk group 错误排查：路由组、中继组、UC 分机正则与 NOTIFY 请求。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://abbyz.js.org/voip/opensips/402-no-trunk-group/">
+
+
+
+
+
+  <title>OpenSIPS 故障排查：402 No Trunk Group | 一身仙女味</title>
+
+
+
+
+
+
+
+
+
+<style>.post-body pre{overflow-x:auto;white-space:pre;font-family:monospace}.post-body img{max-width:100%;height:auto}</style>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+
+
+
+
+
+  <div class="container sidebar-position-left
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一身仙女味</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+
+        <p class="site-subtitle">不乱于心，不困于情，不畏将来，不念过往， 如此，安好@</p>
+
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+
+
+
+    <ul id="menu" class="menu">
+
+
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+
+            首页
+          </a>
+        </li>
+
+
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+
+            标签
+          </a>
+        </li>
+
+
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+
+            分类
+          </a>
+        </li>
+
+
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+
+            归档
+          </a>
+        </li>
+
+
+
+    </ul>
+
+
+
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+
+  <section id="posts" class="posts-expand"><article class="post post-type-normal"><div class="post-block"><header class="post-header"><h1 class="post-title">OpenSIPS 故障排查：402 No Trunk Group</h1><div class="post-meta">同步于 <time datetime="2026-11-24">2026-11-24</time> · OpenSIPS / 故障排查</div></header><div class="post-body"><h2>🚨 问题现象</h2>
+<p>OpenSIPS 返回 <code class="notranslate">402 no trunk group</code> 错误。</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/voip/images/402-sngrep.png"><img src="/voip/images/402-sngrep.png" alt="402 sngrep 抓包" style="max-width: 100%;"></a></p>
+<hr>
+<h2>🔍 问题分析</h2>
+<h3>错误含义</h3>
+<p><strong>402 no trunk group</strong> 是 OpenSIPS 自定义错误码，表示：</p>
+<ul>
+<li>脚本中未找到 <code class="notranslate">$avp(trunk_group)</code> 中继组变量</li>
+<li>无法确定通过哪个中继组进行路由</li>
+<li>呼叫被拒绝并返回 402 错误</li>
+</ul>
+<h3>触发逻辑</h3>
+<p>在 OpenSIPS Core 脚本中的判断逻辑：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">if(<span class="pl-k">!</span>is_avp_set(<span class="pl-s"><span class="pl-pds">"</span><span class="pl-smi">$avp</span>(trunk_group)<span class="pl-pds">"</span></span>)) {
+    sl_send_reply(<span class="pl-s"><span class="pl-pds">"</span>402<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>no trunk group<span class="pl-pds">"</span></span>)<span class="pl-k">;</span>
+    route(r_metadata_json, 402, <span class="pl-s"><span class="pl-pds">"</span>no trunk group<span class="pl-pds">"</span></span>)<span class="pl-k">;</span>
+    <span class="pl-en">exit</span>();
+}</pre></div>
+<hr>
+<h2>🛠️ 找路由组逻辑</h2>
+<h3>路由顺序</h3>
+<pre class="notranslate"><code class="notranslate">1️⃣ 分机号 → 路由组 → 中继组
+2️⃣ 域名 → 路由组 → 中继组
+</code></pre>
+<h3>详细流程</h3>
+<pre class="notranslate"><code class="notranslate">┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  分机号/域名 │ ───&gt;│   路由组    │ ───&gt;│   中继组     │
+└─────────────┘     └─────────────┘     └─────────────┘
+                           │                    │
+                           │                    ↓
+                           │            $avp(trunk_group)
+                           │                  (未设置)
+                           │                    ↓
+                           │            ❌ 402 no trunk group
+                           ↓
+                   查询数据库视图
+</code></pre>
+<hr>
+<h2>🏢 UC 环境特别说明</h2>
+<h3>分机号正则匹配机制</h3>
+<p>在 UC 环境中，分机绑定的路由组查询依赖于正则匹配：</p>
+<pre class="notranslate"><code class="notranslate">┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│   分机号    │ ───&gt;│  正则匹配    │ ───&gt;│   路由组    │
+└─────────────┘     └─────────────┘     └─────────────┘
+     │                                     │
+     │    匹配失败                          │
+     └─────────────────────────────────────┤
+                                          │
+                                          ▼
+                                   ❌ 查询不到路由组
+                                          │
+                                          ▼
+                                   ❌ 402 no trunk group
+</code></pre>
+<p><strong>关键逻辑</strong>：</p>
+<ul>
+<li>如果分机号正则匹配不上，分机绑定的路由组将查询不到</li>
+<li>如果没有 <code class="notranslate">prefix_extension</code> 字段，脚本会自动将分机号替换为以 <strong>8</strong> 开头</li>
+</ul>
+<h3>domain 表 attrs 字段配置</h3>
+<pre class="notranslate"><code class="notranslate">┌─────────────────────────────────────────────────────────┐
+│  prefix_num=4;prefix_relay=^9;prefix_extension=^7[0-9]{3,8}$  │
+└─────────────────────────────────────────────────────────┘
+</code></pre>
+<h4>参数说明</h4>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">prefix_num</code></td>
+<td>缩位拨号启用，区域号位数</td>
+<td><code class="notranslate">prefix_num=4</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">prefix_relay</code></td>
+<td>外呼到中继的前缀</td>
+<td><code class="notranslate">prefix_relay=^9</code></td>
+</tr>
+<tr>
+<td><code class="notranslate">prefix_extension</code></td>
+<td>分机号正则匹配</td>
+<td><code class="notranslate">prefix_extension=^7[0-9]{3,8}$</code></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h4>常见正则表达式</h4>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>正则表达式</th>
+<th>匹配规则</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="notranslate">^7[0-9]{3,8}$</code></td>
+<td>7开头，3-8位数字</td>
+<td>7001, 712345678</td>
+</tr>
+<tr>
+<td><code class="notranslate">^8[0-9]{4}$</code></td>
+<td>8开头，4位数字</td>
+<td>80001, 89999</td>
+</tr>
+<tr>
+<td><code class="notranslate">^[0-9]{4,6}$</code></td>
+<td>任意4-6位数字</td>
+<td>1000, 123456</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h3>UC 环境故障场景</h3>
+<p><strong>场景：分机号正则匹配失败</strong></p>
+<pre class="notranslate"><code class="notranslate">分机号: 7001
+domain attrs: prefix_extension=^8[0-9]{4}$
+
+结果: ❌ 7001 不匹配 ^8[0-9]{4}$
+     → 查询不到路由组
+     → 返回 402 no trunk group
+</code></pre>
+<p><strong>处理逻辑</strong>：</p>
+<p>如果没有配置 <code class="notranslate">prefix_extension</code> 字段，脚本会自动将分机号替换为以 <strong>8</strong> 开头再进行匹配：</p>
+<pre class="notranslate"><code class="notranslate">原始分机: 1001
+无 prefix_extension 配置
+↓
+自动替换: 81001
+↓
+使用 81001 进行路由组查询
+</code></pre>
+<hr>
+<h2>💡 常见原因与解决方案</h2>
+<h3>原因一：数据库视图不存在</h3>
+<p><strong>现象</strong>: 设置了路由组，但仍然报 402 错误</p>
+<p><strong>原因</strong>: 查询路由组时使用的是视图，如果视图不存在则无法查询</p>
+<h3>原因二：分机未绑定路由组</h3>
+<p><strong>现象</strong>: 找不到分机号对应的路由组</p>
+<hr>
+<h2>📨 NOTIFY 收到 402</h2>
+<h3>问题现象</h3>
+<p><a target="_blank" rel="noopener noreferrer" href="/voip/images/402-sbc.png"><img src="/voip/images/402-sbc.png" alt="402 SBC 配置" style="max-width: 100%;"></a></p>
+<p>NOTIFY 请求发送到 Core 后收到 402 错误。</p>
+<h3>问题原因</h3>
+<p>NOTIFY 找分机是通过 RURI (Request-URI) 查找的，在执行判断之前：</p>
+<ol>
+<li>脚本会先把 <code class="notranslate">$rd</code> (Request Domain) 改成 <code class="notranslate">$td</code> (To Domain)</li>
+<li>如果 <code class="notranslate">$td</code> 里面没有域名，就找不到分机号</li>
+<li>最终返回 402 no trunk group</li>
+</ol>
+<h3>解决方案</h3>
+<h4>方案一：检查 NOTIFY 请求格式</h4>
+<p>确保 NOTIFY 请求的 To 头包含正确域名：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 抓包检查 NOTIFY</span>
+tcpdump -i any -n -s 0 port 5060 -A <span class="pl-k">|</span> grep -i notify</pre></div>
+<p>正确的 NOTIFY 格式：</p>
+<pre class="notranslate"><code class="notranslate">NOTIFY sip:user@domain.com SIP/2.0
+To: &lt;sip:user@domain.com&gt;
+From: &lt;sip:server@domain.com&gt;
+</code></pre>
+<h4>方案二：修改脚本逻辑</h4>
+<p>如果 <code class="notranslate">$td</code> 为空，使用 <code class="notranslate">$rd</code> 作为备选：</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> OpenSIPS 脚本修改</span>
+if(<span class="pl-k">!</span><span class="pl-smi">$td</span>) {
+    <span class="pl-smi">$td</span> = <span class="pl-smi">$rd</span><span class="pl-k">;</span>
+}</pre></div>
+<hr>
+<h2>🔗 相关文档</h2>
+<ul>
+<li>外呼 480 Temporarily Unavailable（尚未同步）</li>
+<li>499 Edge Send Timeout（尚未同步）</li>
+<li>故障排查（尚未同步）</li>
+</ul><hr><p>关联文档尚未同步至本博客。<a href="/voip/opensips/故障排查/402-No-Trunk-Group.md" download>下载 Markdown 原文</a></p></div></div></article></section>
+
+
+
+
+
+
+          </div>
+
+
+
+
+
+        </div>
+
+
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+
+    <div class="sidebar-inner">
+
+
+
+
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+
+              <p class="site-author-name" itemprop="name">小周周</p>
+              <p class="site-description motion-element" itemprop="description">OpenSIPS 402 no trunk group 错误排查：路由组、中继组、UC 分机正则与 NOTIFY 请求。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+
+              <div class="site-state-item site-state-posts">
+
+                <a href="/archives/">
+
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+
+
+
+
+
+
+
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+
+
+          </nav>
+
+
+
+
+            <div class="links-of-author motion-element">
+
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Abbyzhoum" target="_blank" title="GitHub">
+
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+
+                  <span class="links-of-author-item">
+                    <a href="mailto:1215270948@qq.com" target="_blank" title="E-Mail">
+
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </section>
+
+
+
+
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+
+            <span id="scrollpercent"><span>0</span>%</span>
+
+        </div>
+
+
+    </div>
+  </aside>
+
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">true</span>
+
+
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+
+
+
+
+
+  </div>
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+
+
+
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+
+
+
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+
+
+
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+
+
+
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+
+
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+
+
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+
+
+
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
