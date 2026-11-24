@@ -4,3 +4,5 @@ site/db.json
 site/.cache/
 site/.stellar/
 .DS_Store
+
+.preview/

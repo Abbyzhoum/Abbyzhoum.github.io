@@ -11,3 +11,189 @@ body{background-color:var(--background)}
 ::selection{background:#ddd6fe;color:#3b0764}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--background:#171320;--link:#c4b5fd}}
 :root[data-theme="dark"]{--background:#171320;--link:#c4b5fd}
+
+/* ===== 归档/文档列表卡片化 ===== */
+/* 优先级对齐主题的 .post-list #archive .archive-header */
+.post-list.archives{display:flex;flex-direction:column;gap:20px;width:100%}
+/* 每个年份一个分组卡片 */
+.post-list.archives article{display:flex;flex-direction:column;gap:0;
+  border:1px solid var(--card-border,rgba(0,0,0,.07));border-radius:16px;
+  background:var(--card-bg,rgba(255,255,255,.72));backdrop-filter:blur(8px);
+  overflow:hidden;box-shadow:0 1px 2px rgba(17,12,36,.04),0 6px 20px -14px rgba(76,29,149,.18)}
+/* 年份标题：贴卡片顶部，做成"卡头"，右侧带文章计数 */
+.post-list.archives .archive-header,
+.post-list #archive .archive-header{position:relative;display:flex;align-items:center;gap:10px;
+  padding:13px 20px 11px;margin:0;font-weight:700;letter-spacing:.02em;
+  font-size:1.05rem;line-height:1.3;color:var(--text-p1)}
+.post-list.archives .archive-header::before,
+.post-list #archive .archive-header::before{content:'';width:6px;height:6px;border-radius:50%;flex:0 0 auto;
+  background:var(--primary,#7C3AED);box-shadow:0 0 0 4px color-mix(in srgb,var(--primary,#7C3AED) 18%,transparent)}
+.post-list.archives .archive-header::after,
+.post-list #archive .archive-header::after{content:'';position:absolute;left:20px;right:20px;bottom:0;height:1px;
+  background:linear-gradient(90deg,color-mix(in srgb,var(--primary,#7C3AED) 35%,transparent),transparent 70%)}
+/* 行与行之间用细分隔线，首尾不留；行高收紧，避免整片列表"空而松" */
+.post-list.archives .archive-list+.archive-list{border-top:1px solid color-mix(in srgb,var(--card-border,rgba(0,0,0,.07)) 70%,transparent)}
+.post-list.archives .archive-list{position:relative;transition:background .18s ease}
+.post-list.archives .archive-list::before{content:'';position:absolute;left:0;top:50%;width:3px;height:0;border-radius:0 3px 3px 0;
+  background:var(--primary,#7C3AED);transform:translateY(-50%);transition:height .18s ease}
+.post-list.archives .archive-list:hover{background:color-mix(in srgb,var(--primary,#7C3AED) 6%,transparent)}
+.post-list.archives .archive-list:hover::before{height:60%}
+.post-list.archives .archive-list a.post{display:flex;align-items:center;gap:11px;padding:8px 18px;margin:0;
+  font-size:14.5px;line-height:1.55;border-bottom:none}
+/* 图标：统一用 stroke 线性文档图标。
+   旧方案用「填充路径 fill-rule」做 mask，17px 下内部镂空只剩 1px 白线，
+   像素采样证实渲染成实心圆角块（168 个实心像素、仅 2 条 1px 缝），
+   与侧边栏 24px 线性图标风格割裂 —— 这是"有的图标像色块、有的不显示"的根因。 */
+.post-list.archives .archive-list a.post::before{content:'';flex:0 0 auto;width:16px;height:16px;
+  background-color:var(--primary,#7C3AED);opacity:.45;transition:opacity .18s ease,transform .18s ease;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/%3E%3Cpath d='M14 2v6h6'/%3E%3Cpath d='M8 13h8'/%3E%3Cpath d='M8 17h5'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/%3E%3Cpath d='M14 2v6h6'/%3E%3Cpath d='M8 13h8'/%3E%3Cpath d='M8 17h5'/%3E%3C/svg%3E") center/contain no-repeat}
+.post-list.archives .archive-list:hover a.post::before{opacity:1;transform:scale(1.06)}
+/* 日期：小号等宽数字 + 轻底色胶囊，作为"序号"而非装饰，避免抢标题 */
+.post-list.archives .archive-list time{flex:0 0 auto;min-width:44px;text-align:center;font-size:11.5px;font-weight:600;
+  letter-spacing:.05em;color:color-mix(in srgb,var(--primary,#7C3AED) 68%,var(--text-p2,#4a4a5e));
+  font-variant-numeric:tabular-nums;line-height:1;padding:5px 0;border-radius:8px;
+  background:color-mix(in srgb,var(--primary,#7C3AED) 8%,transparent)}
+.post-list.archives .archive-list:hover time{color:var(--primary,#7C3AED);background:color-mix(in srgb,var(--primary,#7C3AED) 14%,transparent)}
+.post-list.archives .archive-list span{flex:1 1 auto;min-width:0;overflow-wrap:anywhere;
+  color:var(--text-p2);font-weight:450;transition:color .18s ease}
+.post-list.archives .archive-list a.post:hover span{color:var(--primary,#7C3AED)}
+/* 暗色模式（对齐主题约定：显式 dark，或未设置且系统为暗色） */
+:root[data-theme="dark"] .post-list.archives article{--card-bg:rgba(30,26,44,.62);--card-border:rgba(255,255,255,.09);box-shadow:none}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme]) .post-list.archives article{--card-bg:rgba(30,26,44,.62);--card-border:rgba(255,255,255,.09);box-shadow:none}
+}
+/* 暗色可读性修复：标题/日期/年份用 var(--text-p1/p2)，而主题暗色下这两个变量
+   仍是浅色主题的深色值（实测 span 解析为 rgba(0,0,0,.7)，在深紫卡片上几乎不可读）。
+   这里显式给暗色下的归档文字指定浅色，保证对比度。 */
+:root[data-theme="dark"] .post-list.archives .archive-list span,
+:root[data-theme="dark"] .post-list.archives .archive-header{color:rgba(255,255,255,.82)}
+:root[data-theme="dark"] .post-list.archives .archive-list time{color:color-mix(in srgb,#c4b5fd 72%,rgba(255,255,255,.5))}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme]) .post-list.archives .archive-list span,
+  :root:not([data-theme]) .post-list.archives .archive-header{color:rgba(255,255,255,.82)}
+  :root:not([data-theme]) .post-list.archives .archive-list time{color:color-mix(in srgb,#c4b5fd 72%,rgba(255,255,255,.5))}
+}
+
+/* ===== 文档树（leftbar doc-tree-widget）条目图标补齐 ===== */
+/* 主题 tree.ejs 构造 entries 时只传 href/title/active，不传 icon，
+   子项因此无图标（宽屏下 .ui-collection__initial 为 display:none，等于完全空白），
+   与上方带 SVG 图标的导航项风格割裂。这里用 ::before 补一个统一文档图标。 */
+.doc-tree-widget .ui-collection__item:not(.is-active){position:relative}
+.doc-tree-widget .ui-collection__item .ui-icon{display:none}
+.doc-tree-widget .ui-collection__item{padding-left:16px;padding-right:10px;gap:0}
+.doc-tree-widget .ui-collection__item::before{
+  content:'';flex:0 0 auto;width:15px;height:15px;margin:0 16.5px 0 4.5px;
+  background-color:var(--text-light,#8b8b9e);opacity:.62;
+  transition:opacity .18s ease,background-color .18s ease;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/%3E%3Cpath d='M14 2v6h6'/%3E%3Cpath d='M8 13h8'/%3E%3Cpath d='M8 17h5'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/%3E%3Cpath d='M14 2v6h6'/%3E%3Cpath d='M8 13h8'/%3E%3Cpath d='M8 17h5'/%3E%3C/svg%3E") center/contain no-repeat}
+/* 当前页（文档首页）用实心书图标区分 */
+.doc-tree-widget .ui-collection__item.is-active::before{
+  background-color:var(--primary,#7C3AED);opacity:1;
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 6.5A4.5 4.5 0 0 0 7.5 2H2v18h5.5A4.5 4.5 0 0 1 12 24.5A4.5 4.5 0 0 1 16.5 20H22V2h-5.5A4.5 4.5 0 0 0 12 6.5z'/%3E%3Cpath d='M12 6.5V24.5'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 6.5A4.5 4.5 0 0 0 7.5 2H2v18h5.5A4.5 4.5 0 0 1 12 24.5A4.5 4.5 0 0 1 16.5 20H22V2h-5.5A4.5 4.5 0 0 0 12 6.5z'/%3E%3Cpath d='M12 6.5V24.5'/%3E%3C/svg%3E")}
+.doc-tree-widget .ui-collection__item:hover::before{opacity:1;background-color:var(--primary,#7C3AED)}
+/* 条目内的首字母占位彻底不参与布局，避免与补图标重叠 */
+.doc-tree-widget .ui-collection__initial{display:none !important}
+/* 文档树标题与 recent 同规则：单行 + 13.5px，保证侧栏内所有列表排版一致 */
+.doc-tree-widget .ui-collection__title{font-size:13.5px;line-height:1.3;font-weight:500}
+
+/* ===== 最近更新（leftbar recent-widget）条目图标补齐 ===== */
+/* 与 doc-tree 同根因：recent.ejs 构造 entries 时只传 href/title/prefix/indicator，
+   不传 icon，子项在宽屏下既无 SVG 也无 initial（display:none），左侧整片空白。
+   注意：不能用「填充路径」做 mask —— 16px 下内部镂空会糊成实心色块（实测），
+   必须用 stroke 线性图标，缩放后仍有清晰线条。 */
+/* 布局修正：主题 compact 密度给条目 padding-x = gap-base(24px)，232px 列宽下
+   标题只剩 163px，长标题被 ellipsis 腰斩（实测 scrollWidth 341 vs clientWidth 163）。
+   对齐方案：左内边距 16px 与导航菜单 svg 的 x=64 对齐；图标 15px 居中于导航的
+   24px 图标槽（margin-left 4.5px，中心同为 x=76），右侧留 16.5px 使标题起始 x
+   与导航标题严格对齐到 100px（此前为 94px，视觉上比菜单缩进浅 6px）。
+   注：曾试过「两行换行」方案，实测 10 条里 5 条变两行（30→48px），
+   列表高矮参差反而更乱，故回到统一单行 + 尽量加宽。 */
+.recent-widget .ui-collection__item{padding-left:16px;padding-right:8px;min-height:30px;gap:0}
+/* 侧栏底部渐隐带收窄：主题给 .site-region__zone--body 的 mask 是
+   linear-gradient(transparent, white 5%, white 90%, transparent)，底部 10%（624px
+   容器下 ≈62px）正好压掉 2 行文字（像素实测第 8~10 行最深像素 sum 228→450→540→765，
+   最后一行完全不可见），这就是"最近更新有的不显示"的另一半根因。
+   把不透明区扩到 96%、渐隐带压到 4%（≈25px，不足一行），既保留"下方可滚动"的
+   暗示，又不再吞掉整行标题。 */
+.site-region--leftbar .site-region__zone--body{
+  mask:linear-gradient(transparent,white 5%,white 96%,transparent);
+  -webkit-mask:linear-gradient(transparent,white 5%,white 96%,transparent)}
+.recent-widget .ui-collection__item::before{
+  content:'';flex:0 0 auto;width:15px;height:15px;margin:0 16.5px 0 4.5px;
+  background-color:var(--text-light,#8b8b9e);opacity:.62;
+  transition:opacity .18s ease,background-color .18s ease;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/%3E%3Cpath d='M14 2v6h6'/%3E%3Cpath d='M8 13h8'/%3E%3Cpath d='M8 17h5'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/%3E%3Cpath d='M14 2v6h6'/%3E%3Cpath d='M8 13h8'/%3E%3Cpath d='M8 17h5'/%3E%3C/svg%3E") center/contain no-repeat}
+.recent-widget .ui-collection__item:hover::before{opacity:1;background-color:var(--primary,#7C3AED)}
+.recent-widget .ui-collection__initial{display:none !important}
+/* 标题保持单行 ellipsis（与主题一致），但把字号收到 13.5px、行高 1.3，
+   配合上面的加宽，让多数标题能完整显示；确实超长的才省略。
+   注意：主题 recent.ejs 构造 entries 时未写 title 属性（实测 10/10 无 title），
+   截断后用户无处看全文。这里用 ::after 悬浮气泡补上「悬停看全文」。 */
+.recent-widget .ui-collection__title{font-size:13.5px;line-height:1.3;font-weight:500}
+.recent-widget .ui-collection__prefix{font-size:11px}
+.recent-widget .ui-collection__item{position:relative}
+/* 悬浮气泡：显示完整标题（主题已给 <a> 写 title 属性，但原生提示延迟 1~2s、
+   无法样式化、触屏无效；这里做即时增强）。挂在条目自身（<a>）的 ::after 上，
+   向右侧弹出，避开侧栏 232px 的宽度限制。 */
+.recent-widget .ui-collection__item[data-full-title]::after{
+  content:attr(data-full-title);position:absolute;left:calc(100% + 8px);top:50%;
+  transform:translateY(-50%) translateX(-4px);z-index:99;
+  width:max-content;max-width:300px;padding:7px 11px;border-radius:10px;
+  background:rgba(30,26,44,.94);color:#fff;
+  font-size:12px;line-height:1.5;font-weight:400;white-space:normal;
+  text-align:left;letter-spacing:0;
+  box-shadow:0 10px 28px -10px rgba(17,12,36,.5);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .16s ease,transform .16s ease}
+.recent-widget .ui-collection__item[data-full-title]:hover::after{opacity:1;visibility:visible;transform:translateY(-50%) translateX(0)}
+:root[data-theme="dark"] .recent-widget .ui-collection__item[data-full-title]::after{background:rgba(236,233,248,.96);color:#241b3a}
+
+/* ===== 文章列表（/posts/）卡片优化 ===== */
+/* 实测基线：卡片 776px / wrap 阴影仅 0 1px 2px / article 内边距 16px / 标题纯黑 20px */
+/* 目标：撑满 808px 内容区、增强层次、标题与摘要拉开对比 */
+.site-main .post-list{margin:1rem 0}
+.post-list .post-card-wrap{margin:1rem 0;border-radius:20px;
+  box-shadow:0 1px 2px rgba(17,12,36,.05),0 8px 24px -12px rgba(76,29,149,.22);
+  transition:box-shadow .25s ease,transform .25s ease}
+.post-list .post-card-wrap:hover{box-shadow:0 2px 4px rgba(17,12,36,.06),0 16px 36px -14px rgba(76,29,149,.34)}
+.post-list .post-card{border-radius:20px;background:var(--card)}
+.post-list .post-card article{padding:1.35rem 1.5rem 1.25rem}
+/* 标题：由纯黑改为深紫灰，字号略增，与摘要形成层级 */
+.post-list .post-card .post-title{font-size:1.28rem;font-weight:600;letter-spacing:-.01em;
+  margin:.35rem 0 .55rem;color:var(--text-p1,var(--text))}
+/* 摘要：字号略小、行高更松、颜色降一级，最多 3 行后省略 */
+.post-list .post-card .excerpt{margin:0 0 .85rem}
+.post-list .post-card .excerpt>p{margin:0;font-size:.925rem;line-height:1.75;
+  color:var(--text-p3,#6b6b80);
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden}
+/* 元信息：与摘要之间加细分隔，弱化图标尺寸 */
+.post-list .post-card .meta.cap{margin-top:.85rem;padding-top:.75rem;
+  border-top:1px solid color-mix(in srgb,var(--primary,#7C3AED) 12%,transparent);
+  font-size:.8rem;color:var(--text-light,#8b8b9e)}
+.post-list .post-card .meta.cap svg{transform:scale(1);opacity:.75;margin-right:6px}
+/* 标签胶囊：收紧间距，主色描边更轻盈 */
+.post-list .post-card .card-tags{gap:6px;margin-left:auto}
+.post-list .post-card .card-tags .tag-chip{font-size:.75rem;padding:2px 9px;border-radius:999px;
+  background:color-mix(in srgb,var(--primary,#7C3AED) 9%,transparent);
+  color:color-mix(in srgb,var(--primary,#7C3AED) 88%,var(--text-p2,#4a4a5e));
+  border:1px solid color-mix(in srgb,var(--primary,#7C3AED) 18%,transparent);transition:background .18s ease}
+.post-list .post-card:hover .card-tags .tag-chip{background:color-mix(in srgb,var(--primary,#7C3AED) 16%,transparent)}
+/* 分页器：与卡片同宽对齐，箭头补齐可见性 */
+.paginator-wrap{margin:1.5rem 0 .5rem}
+.paginator-wrap .extend svg,.paginator-wrap .page-number{color:var(--text-p2)}
+.paginator-wrap .extend svg{width:1em;height:1em}
+/* 暗色适配 */
+:root[data-theme="dark"] .post-list .post-card-wrap{
+  box-shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6)}
+:root[data-theme="dark"] .post-list .post-card .excerpt>p{color:#a9a4bd}
+:root[data-theme="dark"] .post-list .post-card .meta.cap{color:#8f8aa3}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme]) .post-list .post-card-wrap{
+    box-shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6)}
+  :root:not([data-theme]) .post-list .post-card .excerpt>p{color:#a9a4bd}
+  :root:not([data-theme]) .post-list .post-card .meta.cap{color:#8f8aa3}
+}
