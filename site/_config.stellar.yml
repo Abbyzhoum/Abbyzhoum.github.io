@@ -78,6 +78,7 @@ search:
   provider: local
 inject:
   head_end: <link rel="stylesheet" href="/custom-purple.css">
+  body_end: <script src="/js/list-full-title.js" defer></script>
 features:
   color_scheme_switch:
     enabled: true
